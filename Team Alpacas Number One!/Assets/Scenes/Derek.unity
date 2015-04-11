@@ -216,12 +216,7 @@ Prefab:
       propertyPath: m_Name
       value: TestPickup
       objectReference: {fileID: 0}
-    - target: {fileID: 11494238, guid: 424f074d35f4ed74da248a219c37586c, type: 2}
-      propertyPath: loopUIElement
-      value: 
-      objectReference: {fileID: 145336, guid: da645ab8e735013428107456c5cb6675, type: 2}
-    m_RemovedComponents:
-    - {fileID: 5875332, guid: 424f074d35f4ed74da248a219c37586c, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 424f074d35f4ed74da248a219c37586c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &766190951
@@ -367,19 +362,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   trailGraphic: {fileID: 135270, guid: 9fd36262af3952645aca8f0e911c7e04, type: 2}
---- !u!1 &1973103980 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 101578, guid: 424f074d35f4ed74da248a219c37586c, type: 2}
-  m_PrefabInternal: {fileID: 677670031}
---- !u!135 &1973103984
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1973103980}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.27999997
-  m_Center: {x: 0, y: 0, z: 0}

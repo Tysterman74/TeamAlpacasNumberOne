@@ -8,9 +8,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22402184}
-  - 58: {fileID: 5875332}
   - 114: {fileID: 11494238}
   - 212: {fileID: 21254136}
+  - 135: {fileID: 13579318}
   m_Layer: 0
   m_Name: TestPickup 1
   m_TagString: Untagged
@@ -18,19 +18,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &5875332
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101578}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.27999997
 --- !u!114 &11494238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -42,7 +29,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c81680e82f99445a4b3e3e9f20ada2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loopUIElement: {fileID: 0}
+  loopUIElement: {fileID: 145336, guid: da645ab8e735013428107456c5cb6675, type: 2}
+--- !u!135 &13579318
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.27999997
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &21254136
 SpriteRenderer:
   m_ObjectHideFlags: 1
