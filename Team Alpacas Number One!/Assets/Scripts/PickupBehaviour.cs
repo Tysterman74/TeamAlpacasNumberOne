@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PickupBehaviour : MonoBehaviour {
 
     public GameObject loopUIElement;
+    private PowerUp powerUp;
 
     Dictionary<int, loopObject> currentPositions; //int is player ID, float is their relative position
 
@@ -12,6 +13,9 @@ public class PickupBehaviour : MonoBehaviour {
     void Start()
     {
         currentPositions = new Dictionary<int, loopObject>();
+        powerUp = GetComponent<PowerUp>();
+
+        powerUp.PrintPowerUp();
     }
 
     public void Trigger() //all pickups should override this method
@@ -37,6 +41,7 @@ public class PickupBehaviour : MonoBehaviour {
 
         if (currentPositions[other.gameObject.GetInstanceID()].loopComplete())
         {
+            other.SendMessage("SetItem", powerUp);
             currentPositions[other.gameObject.GetInstanceID()].destroy();
             currentPositions.Remove(other.gameObject.GetInstanceID());
             Trigger();
