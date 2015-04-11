@@ -15,8 +15,10 @@ public class HedgehogPowerUp : PowerUp {
 	
 	// Update is called once per frame
 	void Update () {
+
         if (activated)
         {
+            print("active");
             duration -= Time.deltaTime;
             if (duration < 0)
             {
