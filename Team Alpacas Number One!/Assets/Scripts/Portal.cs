@@ -6,6 +6,8 @@ public class Portal : MonoBehaviour {
     public GameObject receivingPortal;
     public Vector2 size;
 
+    public bool leftRight;
+
     float height;
     float width;
 
@@ -31,13 +33,27 @@ public class Portal : MonoBehaviour {
             //Teleport player to other side.
             //Assume width for now,
             Vector3 playerPos = col.transform.position;
-            if (col.GetComponent<Rigidbody2D>().velocity.x > 0)
+            if (leftRight)
             {
-                playerPos.x -= (width - 1);
+                if (col.GetComponent<Rigidbody2D>().velocity.x > 0)
+                {
+                    playerPos.x -= (width - 1);
+                }
+                else
+                {
+                    playerPos.x += (width);
+                }
             }
             else
             {
-                playerPos.x += (width - 1);
+                if (col.GetComponent<Rigidbody2D>().velocity.y > 0)
+                {
+                    playerPos.y -= (height);
+                }
+                else
+                {
+                    playerPos.y += (height);
+                }
             }
             col.transform.position = playerPos;
         }
