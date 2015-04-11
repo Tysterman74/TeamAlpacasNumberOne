@@ -30,7 +30,6 @@ public class Portal : MonoBehaviour {
     {
         if (col.tag.Contains("Player"))
         {
-            col.gameObject.GetComponent<LineCollision>().ignoreNextTrail();
             //Teleport player to other side.
             //Assume width for now,
             Vector3 playerPos = col.transform.position;
@@ -58,5 +57,6 @@ public class Portal : MonoBehaviour {
             }
             col.transform.position = playerPos;
         }
+        col.gameObject.GetComponent<LineCollision>().portalJump();
     }
 }
