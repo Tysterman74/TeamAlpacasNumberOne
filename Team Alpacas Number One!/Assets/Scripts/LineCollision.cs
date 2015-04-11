@@ -10,12 +10,15 @@ public class LineCollision : MonoBehaviour {
     private List<LineCollision> enemyTrails;
 
     private bool flagIgnoreNext = false;
-
+    private PlayerState state; //reference to our playerstatescript
 	// Use this for initialization
 	void Start () {
         trail = new List<lineObject>();
         lastPosition = transform.position;
         enemyTrails = new List<LineCollision>();
+        state = GetComponent<PlayerState>();
+
+        //get list of enemy players
         int playerNumber = 1;
         GameObject other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
         while(other)
@@ -47,6 +50,7 @@ public class LineCollision : MonoBehaviour {
             if (other.doesSegmentIntersect(line))
             {
                 Debug.Log("HIT!");
+                state.loseLife();
             }
         }
         currentLength += line.getTranslation().magnitude;
