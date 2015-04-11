@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PowerUp : MonoBehaviour {
 
-    public string name;
+    //public string name;
 
     //Variable to show that it has been activated.
     protected bool activated;
@@ -38,7 +38,6 @@ public class PowerUp : MonoBehaviour {
 
     public virtual void PrintPowerUp()
     {
-        print(name);
     }
 
 
