@@ -189,6 +189,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numLives: 5
+--- !u!1 &895826533 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 190302, guid: 753fe9207db96d74eafe31a658d6eb3e, type: 2}
+  m_PrefabInternal: {fileID: 972520517}
+--- !u!114 &895826539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 895826533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93b98f3877f32246a842528869bc942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shake: 0
+  shakeAmount: .699999988
+  decreaseFactor: 1
+  originalPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &972520517
 Prefab:
   m_ObjectHideFlags: 0
