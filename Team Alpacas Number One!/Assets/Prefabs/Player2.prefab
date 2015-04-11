@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numLives: 5
+  deadPlanePrefab: {fileID: 187192, guid: 2d84b8e76e9e08640968d590ee5817b3, type: 2}
 --- !u!114 &11459600
 MonoBehaviour:
   m_ObjectHideFlags: 1
