@@ -31,6 +31,6 @@ public class PlayerState : MonoBehaviour {
         deadPlane = Instantiate(deadPlanePrefab, this.transform.position, this.transform.rotation) as GameObject;
         Destroy(deadPlane, 5);
         deadPlane.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity;
-        Destroy(this.gameObject);
+        this.transform.position = new Vector3(0, 0, 0);
     }
 }
