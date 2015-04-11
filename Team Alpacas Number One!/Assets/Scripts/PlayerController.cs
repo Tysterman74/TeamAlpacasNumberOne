@@ -10,9 +10,15 @@ public class PlayerController : MonoBehaviour {
     public KeyCode turnRight;
     public KeyCode itemUse;
 
+    private TestPlayerInventory inventory;
+    private float bonusSpeed;
+
     // Use this for initialization
     void Start()
     {
+        //TEMPORARY
+        inventory = GetComponent<TestPlayerInventory>();
+        bonusSpeed = 0;
 
         rb = GetComponent<Rigidbody>();
     }
@@ -32,7 +38,18 @@ public class PlayerController : MonoBehaviour {
                 Quaternion.Euler(GetComponent<Rigidbody>().rotation.eulerAngles + new Vector3(0.0f, 0.0f, -rotaSpeed));
         }
 
-        rb.velocity = transform.up * speed;
+        if (Input.GetKeyUp(itemUse))
+        {
+            if (inventory.getHasItem())
+            {
+                inventory.activatePower(this.gameObject);
+            }
+            else
+            {
+                print("No item fool!");
+            }
+        }
+        rb.velocity = transform.up * (speed + bonusSpeed);
     }
 
     void OnCollisionEnter(Collision col)
@@ -41,5 +58,10 @@ public class PlayerController : MonoBehaviour {
         {
             rb.AddRelativeForce(-transform.up*100, ForceMode.Impulse);
         }
+    }
+
+    public void SetBonusSpeed(float bonus) 
+    {
+        bonusSpeed = bonus;
     }
 }
