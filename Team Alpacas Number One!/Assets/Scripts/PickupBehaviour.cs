@@ -19,14 +19,16 @@ public class PickupBehaviour : MonoBehaviour {
 
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.tag != Tags.player)
             return;
-        currentPositions[1] = new loopObject(other.transform.position - this.transform.position);
+        GameObject UI;
+        UI = Instantiate(loopUIElement, this.transform.position, Quaternion.LookRotation(other.transform.position - this.transform.position, Vector3.forward)) as GameObject; //forward is (0,0,1)
+        currentPositions[1] = new loopObject(other.transform.position - this.transform.position, UI);
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerStay(Collider other)
     {
         if (other.tag != Tags.player)
             return;
@@ -39,7 +41,7 @@ public class PickupBehaviour : MonoBehaviour {
         
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit(Collider other)
     {
         if (other.tag != Tags.player)
             return;
@@ -52,12 +54,12 @@ public class PickupBehaviour : MonoBehaviour {
         public float totalAngleCovered;
         public Vector2 startPosition;
         private GameObject UIArc;
-        public loopObject(Vector2 position)
+        public loopObject(Vector2 position, GameObject UIArc)
         {
             startPosition = position;
             currentPosition = position;
             totalAngleCovered = 0;
-            //UIArc = Instantiate(loopUIElement, this.transform.position, Quaternion.LookRotation());
+            this.UIArc = UIArc;
         }
 
         public void updatePosition(Vector2 position)
