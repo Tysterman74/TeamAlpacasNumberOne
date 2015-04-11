@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6579196}
   - 23: {fileID: 2394372}
   - 114: {fileID: 11427474}
+  - 54: {fileID: 5482650}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -62,6 +63,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187940}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5482650
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187940}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6579196
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -85,7 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d18df93a00334845b7d46b4b0897302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 1
+  speed: 1
+  rotaSpeed: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
