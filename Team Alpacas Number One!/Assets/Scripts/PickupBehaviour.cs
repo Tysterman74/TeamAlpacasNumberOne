@@ -14,10 +14,8 @@ public class PickupBehaviour : MonoBehaviour {
         currentPositions = new Dictionary<int, loopObject>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Trigger() //all pickups should override this method
     {
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,8 +36,11 @@ public class PickupBehaviour : MonoBehaviour {
 
         if (currentPositions[1].loopComplete())
         {
-            Debug.Log("LOOP COMPLETE!");
+            currentPositions[1].destroy();
+            currentPositions.Remove(1);
+            Trigger();
         }
+
         
     }
 
