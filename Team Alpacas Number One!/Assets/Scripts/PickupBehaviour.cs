@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class PickupBehaviour : MonoBehaviour {
 
@@ -13,37 +14,43 @@ public class PickupBehaviour : MonoBehaviour {
         currentPositions = new Dictionary<int, loopObject>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Trigger() //all pickups should override this method
     {
-
+        Destroy(gameObject);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.tag != Tags.player)
+        if (!other.tag.Contains("Player"))
             return;
-        currentPositions[1] = new loopObject(other.transform.position - this.transform.position);
+        GameObject UI;
+        Vector2 translation = other.transform.position - this.transform.position;
+        UI = Instantiate(loopUIElement, this.transform.position, Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(translation.y, translation.x)))) as GameObject;
+        currentPositions[other.gameObject.GetInstanceID()] = new loopObject(translation, UI);
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    void OnTriggerStay(Collider other)
     {
-        if (other.tag != Tags.player)
+        if (!other.tag.Contains("Player"))
             return;
-        currentPositions[1].updatePosition(other.transform.position - this.transform.position);
+        currentPositions[other.gameObject.GetInstanceID()].updatePosition(other.transform.position - this.transform.position);
 
-        if (currentPositions[1].loopComplete())
+        if (currentPositions[other.gameObject.GetInstanceID()].loopComplete())
         {
-            Debug.Log("LOOP COMPLETE!");
+            currentPositions[other.gameObject.GetInstanceID()].destroy();
+            currentPositions.Remove(other.gameObject.GetInstanceID());
+            Trigger();
         }
+
         
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit(Collider other)
     {
-        if (other.tag != Tags.player)
+        if (!other.tag.Contains("Player"))
             return;
-        currentPositions.Remove(1);
+        currentPositions[other.gameObject.GetInstanceID()].destroy();
+        currentPositions.Remove(other.gameObject.GetInstanceID());
     }
 
     public class loopObject
@@ -52,23 +59,32 @@ public class PickupBehaviour : MonoBehaviour {
         public float totalAngleCovered;
         public Vector2 startPosition;
         private GameObject UIArc;
-        public loopObject(Vector2 position)
+        private Image ArcImage;
+        public loopObject(Vector2 position, GameObject UIArc)
         {
             startPosition = position;
             currentPosition = position;
             totalAngleCovered = 0;
-            //UIArc = Instantiate(loopUIElement, this.transform.position, Quaternion.LookRotation());
+            this.UIArc = UIArc;
+            ArcImage = UIArc.GetComponent<Image>();
         }
 
         public void updatePosition(Vector2 position)
         {
             totalAngleCovered += getAngleBetweenVectors(position, currentPosition);
             currentPosition = position;
+            ArcImage.fillAmount = Mathf.Abs(totalAngleCovered) / 360; //fillAmount is [0,1]
+            ArcImage.fillClockwise = totalAngleCovered >= 0;
         }
 
         public bool loopComplete()
         {
             return Mathf.Abs(totalAngleCovered) >= 360;
+        }
+
+        public void destroy()
+        {
+            Destroy(UIArc);
         }
 
         private float getAngleBetweenVectors(Vector2 vectorNew, Vector2 vectorOld)
@@ -81,7 +97,7 @@ public class PickupBehaviour : MonoBehaviour {
                     return -Vector2.Angle(vectorNew, vectorOld);
             }
 
-            return (Mathf.Atan2(vectorNew.x, vectorNew.y) - Mathf.Atan2(vectorOld.x, vectorOld.y)) * Mathf.Rad2Deg;
+            return (Mathf.Atan2(vectorNew.x, vectorNew.y) - Mathf.Atan2(vectorOld.x, vectorOld.y)) * Mathf.Rad2Deg; //wait, what? it works, but the atan2 parameters are switched
         }
     }
 }

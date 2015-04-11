@@ -7,10 +7,31 @@ public class LineCollision : MonoBehaviour {
     public float maxLength;
     public GameObject trailGraphic;
     private float currentLength = 0;
+    private List<LineCollision> enemyTrails;
 	// Use this for initialization
 	void Start () {
         trail = new List<lineObject>();
         lastPosition = transform.position;
+        enemyTrails = new List<LineCollision>();
+        int playerNumber = 1;
+        GameObject other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
+        while(other)
+        {
+            if (other != this.gameObject)
+            {
+                enemyTrails.Add(other.GetComponent<LineCollision>());
+                Debug.Log("Player" + playerNumber);
+            }
+            playerNumber++;
+            try
+            {
+                other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
+            }
+            catch
+            {
+                break;
+            }
+        }
 	}
 	
 	// Update is called once per frame
@@ -19,9 +40,12 @@ public class LineCollision : MonoBehaviour {
         trail.Add(line); //add it to the end of our trail list (beginning of in-game trail)
         lastPosition = transform.position;
 
-        if (doesSegmentIntersect(line))
+        foreach (LineCollision other in enemyTrails)
         {
-            Debug.Log("HIT!");
+            if (other.doesSegmentIntersect(line))
+            {
+                Debug.Log("HIT!");
+            }
         }
 
         currentLength += line.getTranslation().magnitude;
