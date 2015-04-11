@@ -21,7 +21,7 @@ public class PickupBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag != Tags.player)
+        if (!other.tag.Contains("Player"))
             return;
         GameObject UI;
         Vector2 translation = other.transform.position - this.transform.position;
@@ -31,7 +31,7 @@ public class PickupBehaviour : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag != Tags.player)
+        if (!other.tag.Contains("Player"))
             return;
         currentPositions[other.gameObject.GetInstanceID()].updatePosition(other.transform.position - this.transform.position);
 
@@ -47,7 +47,7 @@ public class PickupBehaviour : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag != Tags.player)
+        if (!other.tag.Contains("Player"))
             return;
         currentPositions[other.gameObject.GetInstanceID()].destroy();
         currentPositions.Remove(other.gameObject.GetInstanceID());
