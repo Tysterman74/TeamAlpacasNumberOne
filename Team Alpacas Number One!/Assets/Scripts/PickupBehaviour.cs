@@ -16,6 +16,7 @@ public class PickupBehaviour : MonoBehaviour {
 
     public void Trigger() //all pickups should override this method
     {
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,19 +26,19 @@ public class PickupBehaviour : MonoBehaviour {
         GameObject UI;
         Vector2 translation = other.transform.position - this.transform.position;
         UI = Instantiate(loopUIElement, this.transform.position, Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(translation.y, translation.x)))) as GameObject;
-        currentPositions[1] = new loopObject(translation, UI);
+        currentPositions[other.gameObject.GetInstanceID()] = new loopObject(translation, UI);
     }
 
     void OnTriggerStay(Collider other)
     {
         if (other.tag != Tags.player)
             return;
-        currentPositions[1].updatePosition(other.transform.position - this.transform.position);
+        currentPositions[other.gameObject.GetInstanceID()].updatePosition(other.transform.position - this.transform.position);
 
-        if (currentPositions[1].loopComplete())
+        if (currentPositions[other.gameObject.GetInstanceID()].loopComplete())
         {
-            currentPositions[1].destroy();
-            currentPositions.Remove(1);
+            currentPositions[other.gameObject.GetInstanceID()].destroy();
+            currentPositions.Remove(other.gameObject.GetInstanceID());
             Trigger();
         }
 
@@ -48,8 +49,8 @@ public class PickupBehaviour : MonoBehaviour {
     {
         if (other.tag != Tags.player)
             return;
-        currentPositions[1].destroy();
-        currentPositions.Remove(1);
+        currentPositions[other.gameObject.GetInstanceID()].destroy();
+        currentPositions.Remove(other.gameObject.GetInstanceID());
     }
 
     public class loopObject
