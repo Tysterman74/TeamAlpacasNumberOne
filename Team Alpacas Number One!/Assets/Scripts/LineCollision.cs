@@ -8,8 +8,6 @@ public class LineCollision : MonoBehaviour {
     public GameObject trailGraphic;
     private float currentLength = 0;
     private List<LineCollision> enemyTrails;
-
-    private bool flagIgnoreNext = false;
     private PlayerState state; //reference to our playerstatescript
 	// Use this for initialization
 	void Start () {
