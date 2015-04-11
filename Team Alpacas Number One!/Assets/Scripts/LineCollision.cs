@@ -8,6 +8,9 @@ public class LineCollision : MonoBehaviour {
     public GameObject trailGraphic;
     private float currentLength = 0;
     private List<LineCollision> enemyTrails;
+
+    private bool flagIgnoreNext = false;
+
 	// Use this for initialization
 	void Start () {
         trail = new List<lineObject>();
@@ -20,7 +23,6 @@ public class LineCollision : MonoBehaviour {
             if (other != this.gameObject)
             {
                 enemyTrails.Add(other.GetComponent<LineCollision>());
-                Debug.Log("Player" + playerNumber);
             }
             playerNumber++;
             try
@@ -36,19 +38,25 @@ public class LineCollision : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        lineObject line = new lineObject(lastPosition, transform.position, Instantiate(trailGraphic) as GameObject);
-        trail.Add(line); //add it to the end of our trail list (beginning of in-game trail)
-        lastPosition = transform.position;
-
-        foreach (LineCollision other in enemyTrails)
+        if (flagIgnoreNext)
         {
-            if (other.doesSegmentIntersect(line))
-            {
-                Debug.Log("HIT!");
-            }
+            flagIgnoreNext = false;
         }
+        else
+        {
+            lineObject line = new lineObject(lastPosition, transform.position, Instantiate(trailGraphic) as GameObject);
+            trail.Add(line); //add it to the end of our trail list (beginning of in-game trail)
 
-        currentLength += line.getTranslation().magnitude;
+            foreach (LineCollision other in enemyTrails)
+            {
+                if (other.doesSegmentIntersect(line))
+                {
+                    Debug.Log("HIT!");
+                }
+            }
+            currentLength += line.getTranslation().magnitude;
+        }
+        lastPosition = transform.position;
         while (currentLength > maxLength) //trail length limitation
         {
             currentLength = currentLength - trail[0].getTranslation().magnitude;
@@ -66,6 +74,12 @@ public class LineCollision : MonoBehaviour {
         }
 
         return false;
+    }
+
+    public void ignoreNextTrail()
+    {
+        flagIgnoreNext = true;
+        Debug.Log("ignore");
     }
 
     public class lineObject
