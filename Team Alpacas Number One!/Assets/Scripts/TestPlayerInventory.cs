@@ -20,5 +20,16 @@ public class TestPlayerInventory : MonoBehaviour {
     {
         print("Item get!");
         item = powerUp;
+        hasItem = true;
+    }
+
+    public bool getHasItem()
+    {
+        return hasItem;
+    }
+
+    public void activatePower(GameObject player)
+    {
+        item.Activate(player);
     }
 }

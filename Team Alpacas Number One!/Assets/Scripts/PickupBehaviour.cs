@@ -20,7 +20,8 @@ public class PickupBehaviour : MonoBehaviour {
 
     public void Trigger() //all pickups should override this method
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)

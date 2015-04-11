@@ -168,6 +168,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11467572, guid: 9907dcbbf82b6534fa694603cff26bcf, type: 2}
+      propertyPath: itemUse
+      value: 115
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9907dcbbf82b6534fa694603cff26bcf, type: 2}
   m_IsPrefabParent: 0
@@ -285,3 +289,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: HedgeHog
+  bonusSpeed: 2
+  duration: 5

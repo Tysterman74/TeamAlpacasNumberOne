@@ -5,7 +5,8 @@ public class PowerUp : MonoBehaviour {
 
     public string name;
 
-    private GameObject player;
+    protected bool activated;
+    protected GameObject playerHolding;
 
 	// Use this for initialization
     public PowerUp()
@@ -13,7 +14,7 @@ public class PowerUp : MonoBehaviour {
 
     }
 
-    public virtual void Activate()
+    public virtual void Activate(GameObject player)
     {
 
     }
