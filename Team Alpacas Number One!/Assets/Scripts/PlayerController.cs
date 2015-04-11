@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
     public float speed = 1;
     public float rotaSpeed = 1;
     Rigidbody rb;
+    public KeyCode turnLeft;
+    public KeyCode turnRight;
 
     // Use this for initialization
     void Start()
@@ -18,24 +20,15 @@ public class PlayerController : MonoBehaviour {
     void FixedUpdate()
     {
         //DirResult = new Vector3(0.0f, 1.0f, 0.0f);
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(turnLeft))
         {
             rb.rotation = 
                 Quaternion.Euler(GetComponent<Rigidbody>().rotation.eulerAngles + new Vector3(0.0f, 0.0f, rotaSpeed));
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(turnRight))
         {
             rb.rotation =
                 Quaternion.Euler(GetComponent<Rigidbody>().rotation.eulerAngles + new Vector3(0.0f, 0.0f, -rotaSpeed));
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-
         }
 
         rb.velocity = transform.up * speed;
