@@ -8,11 +8,17 @@ public class LineCollision : MonoBehaviour {
     public GameObject trailGraphic;
     private float currentLength = 0;
     private List<LineCollision> enemyTrails;
+
+    private bool flagIgnoreNext = false;
+    private PlayerState state; //reference to our playerstatescript
 	// Use this for initialization
 	void Start () {
         trail = new List<lineObject>();
         lastPosition = transform.position;
         enemyTrails = new List<LineCollision>();
+        state = GetComponent<PlayerState>();
+
+        //get list of enemy players
         int playerNumber = 1;
         GameObject other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
         while(other)
@@ -20,7 +26,6 @@ public class LineCollision : MonoBehaviour {
             if (other != this.gameObject)
             {
                 enemyTrails.Add(other.GetComponent<LineCollision>());
-                Debug.Log("Player" + playerNumber);
             }
             playerNumber++;
             try
@@ -35,27 +40,28 @@ public class LineCollision : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+    void FixedUpdate()
+    {
         lineObject line = new lineObject(lastPosition, transform.position, Instantiate(trailGraphic) as GameObject);
         trail.Add(line); //add it to the end of our trail list (beginning of in-game trail)
-        lastPosition = transform.position;
 
         foreach (LineCollision other in enemyTrails)
         {
             if (other.doesSegmentIntersect(line))
             {
                 Debug.Log("HIT!");
+                state.loseLife();
             }
         }
-
         currentLength += line.getTranslation().magnitude;
+        lastPosition = transform.position;
         while (currentLength > maxLength) //trail length limitation
         {
             currentLength = currentLength - trail[0].getTranslation().magnitude;
             trail[0].destroy();
-            trail.RemoveAt(0); 
+            trail.RemoveAt(0);
         }
-	}
+    }
 
     public bool doesSegmentIntersect(lineObject other)
     {
@@ -66,6 +72,11 @@ public class LineCollision : MonoBehaviour {
         }
 
         return false;
+    }
+
+    public void portalJump()
+    {
+        lastPosition = transform.position;
     }
 
     public class lineObject

@@ -28,10 +28,8 @@ public class Portal : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        print(col.tag.Contains("Player"));
         if (col.tag.Contains("Player"))
         {
-            print(col.GetComponent<Rigidbody>().velocity);
             //Teleport player to other side.
             //Assume width for now,
             Vector3 playerPos = col.transform.position;
@@ -39,7 +37,7 @@ public class Portal : MonoBehaviour {
             {
                 if (col.GetComponent<Rigidbody>().velocity.x > 0)
                 {
-                    playerPos.x -= (width - 0.75f);
+                    playerPos.x -= (width - 1);
                 }
                 else
                 {
@@ -59,5 +57,6 @@ public class Portal : MonoBehaviour {
             }
             col.transform.position = playerPos;
         }
+        col.gameObject.GetComponent<LineCollision>().portalJump();
     }
 }

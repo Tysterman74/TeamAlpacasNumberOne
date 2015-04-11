@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickup
-  - Player1
+  - Player
   - Player2
   layers:
   - Default

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour {
     Rigidbody rb;
     public KeyCode turnLeft;
     public KeyCode turnRight;
+    public KeyCode itemUse;
 
     // Use this for initialization
     void Start()
@@ -32,5 +33,13 @@ public class PlayerController : MonoBehaviour {
         }
 
         rb.velocity = transform.up * speed;
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.rigidbody.tag == "Player")
+        {
+            rb.AddRelativeForce(-transform.up*100, ForceMode.Impulse);
+        }
     }
 }
