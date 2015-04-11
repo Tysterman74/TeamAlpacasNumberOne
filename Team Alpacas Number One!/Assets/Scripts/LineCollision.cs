@@ -77,6 +77,15 @@ public class LineCollision : MonoBehaviour {
         lastPosition = transform.position;
     }
 
+    public void clearTrail()
+    {
+        foreach (lineObject line in trail)
+        {
+            line.destroy();
+        }
+        trail = new List<lineObject>();
+    }
+
     public class lineObject
     {
         public Vector2 start;
