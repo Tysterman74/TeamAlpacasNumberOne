@@ -13,7 +13,7 @@ public class Portal : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<BoxCollider2D>().size = size;
+        GetComponent<BoxCollider>().size = size;
         Camera cam = Camera.main;
         height = 2.0f * cam.orthographicSize;
         width = height * cam.aspect;
@@ -26,7 +26,7 @@ public class Portal : MonoBehaviour {
 	
 	}
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Player")
         {
@@ -35,7 +35,7 @@ public class Portal : MonoBehaviour {
             Vector3 playerPos = col.transform.position;
             if (leftRight)
             {
-                if (col.GetComponent<Rigidbody2D>().velocity.x > 0)
+                if (col.GetComponent<Rigidbody>().velocity.x > 0)
                 {
                     playerPos.x -= (width - 1);
                 }
@@ -46,7 +46,7 @@ public class Portal : MonoBehaviour {
             }
             else
             {
-                if (col.GetComponent<Rigidbody2D>().velocity.y > 0)
+                if (col.GetComponent<Rigidbody>().velocity.y > 0)
                 {
                     playerPos.y -= (height);
                 }

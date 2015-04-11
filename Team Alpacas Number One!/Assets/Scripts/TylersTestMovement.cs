@@ -14,23 +14,23 @@ public class TylersTestMovement : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.D))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(speed, 0);
+            GetComponent<Rigidbody>().velocity = new Vector2(speed, 0);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, 0);
+            GetComponent<Rigidbody>().velocity = new Vector2(-speed, 0);
         }
         else if (Input.GetKey(KeyCode.W))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
+            GetComponent<Rigidbody>().velocity = new Vector2(0, speed);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
+            GetComponent<Rigidbody>().velocity = new Vector2(0, -speed);
         }
         else
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            GetComponent<Rigidbody>().velocity = new Vector2(0, 0);
         }
     }
 
