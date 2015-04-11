@@ -84,6 +84,7 @@ public class LineCollision : MonoBehaviour {
             line.destroy();
         }
         trail = new List<lineObject>();
+        currentLength = 0;
     }
 
     public class lineObject
