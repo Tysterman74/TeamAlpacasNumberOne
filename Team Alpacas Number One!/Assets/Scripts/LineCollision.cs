@@ -10,18 +10,39 @@ public class LineCollision : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         trail = new List<lineObject>();
-
-        lineObject line = new lineObject(lastPosition, transform.position, trailGraphic);
-        trail.Add(line); //add it to the end of our trail list (beginning of in-game trail)
         lastPosition = transform.position;
-
-        currentLength += line.getTranslation().magnitude;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-	    
+        lineObject line = new lineObject(lastPosition, transform.position, Instantiate(trailGraphic) as GameObject);
+        trail.Add(line); //add it to the end of our trail list (beginning of in-game trail)
+        lastPosition = transform.position;
+
+        if (doesSegmentIntersect(line))
+        {
+            Debug.Log("HIT!");
+        }
+
+        currentLength += line.getTranslation().magnitude;
+        while (currentLength > maxLength) //trail length limitation
+        {
+            currentLength = currentLength - trail[0].getTranslation().magnitude;
+            trail[0].destroy();
+            trail.RemoveAt(0); 
+        }
 	}
+
+    public bool doesSegmentIntersect(lineObject other)
+    {
+        foreach (lineObject trailLine in trail)
+        {
+            if (trailLine.intersects(other))
+                return true;
+        }
+
+        return false;
+    }
 }
 
 public class lineObject
@@ -34,7 +55,11 @@ public class lineObject
         this.start = start;
         this.end = end;
         Vector2 midpoint = ( start + end )/2;
+        Vector2 translation = getTranslation();
         this.graphic = trailGraphicPrefab;
+        graphic.transform.Translate(midpoint, Space.World);
+        graphic.transform.Rotate(0, 0, 90 - (180 * Mathf.Atan2(translation.x, translation.y) / Mathf.PI), Space.World);
+        graphic.transform.localScale = new Vector3(translation.magnitude * 2, 1, 1);
 
     }
 
@@ -51,6 +76,11 @@ public class lineObject
 
     private bool checkDir(Vector2 pt1, Vector2 pt2, Vector2 pt3)
     {
-        return ((pt2.x-pt1.x)*(pt3.y-pt1.y)) >= ((pt3.x-pt1.x)*(pt2.y-pt1.y));
+        return ((pt2.x-pt1.x)*(pt3.y-pt1.y)) > ((pt3.x-pt1.x)*(pt2.y-pt1.y));
+    }
+
+    public void destroy()
+    {
+        GameObject.Destroy(this.graphic);
     }
 }
