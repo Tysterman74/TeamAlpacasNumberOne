@@ -36,7 +36,7 @@ public class PlayerState : MonoBehaviour {
         respawnPos = respawnPoint.transform.position;
         shake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakeScript>();
         trail = GetComponent<LineCollision>();
-		GameObject playerFrame = GameObject.Find ("Canvas/PlayerFrame");
+		GameObject playerFrame = GameObject.Find ("CanvasPrefab/PlayerFrame");
 		GameObject ui = Instantiate (playerUI) as GameObject;
 		ui.transform.parent=playerFrame.transform;
 		heartContainer = ui.transform.FindChild ("HeartContainer").gameObject;
