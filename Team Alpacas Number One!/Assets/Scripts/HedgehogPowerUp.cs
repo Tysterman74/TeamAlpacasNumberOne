@@ -32,6 +32,7 @@ public class HedgehogPowerUp : PowerUp {
 
     public override void Activate(GameObject player)
     {
+        GetComponent<AudioSource>().Play();
         playerHolding = player;
         player.GetComponent<PlayerController>().SetBonusSpeed(bonusSpeed);
         activated = true;
