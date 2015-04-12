@@ -21,7 +21,7 @@ public class TestPlayerInventory : MonoBehaviour {
         print("Item get!");
         item = powerUp;
         hasItem = true;
-		gameObject.GetComponent<PlayerState> ().setUIItem (powerUp);
+		gameObject.GetComponent<PlayerState> ().setUIItem (item);
     }
 
     public bool getHasItem()
@@ -34,5 +34,6 @@ public class TestPlayerInventory : MonoBehaviour {
         item.Activate(player);
 		item = null;
 		hasItem = false;
+		gameObject.GetComponent<PlayerState> ().removeUIItem();
     }
 }
