@@ -45,7 +45,6 @@ public class PickupBehaviour : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        print("lololol");
         if (!other.tag.Contains("Player"))
             return;
         currentPositions[other.gameObject.GetInstanceID()].updatePosition(other.transform.position - this.transform.position);
