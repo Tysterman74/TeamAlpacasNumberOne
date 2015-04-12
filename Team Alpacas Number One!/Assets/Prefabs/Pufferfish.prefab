@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &121114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445726}
+  - 135: {fileID: 13512178}
+  - 54: {fileID: 5479588}
+  - 114: {fileID: 11449964}
+  m_Layer: 0
+  m_Name: Killzone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &147714
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,9 +28,9 @@ GameObject:
   - 4: {fileID: 466572}
   - 135: {fileID: 13579054}
   - 114: {fileID: 11490720}
-  - 114: {fileID: 11410540}
   - 212: {fileID: 21248878}
   - 82: {fileID: 8262172}
+  - 114: {fileID: 11472254}
   m_Layer: 0
   m_Name: Pufferfish
   m_TagString: Untagged
@@ -20,6 +38,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &445726
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 466572}
+  m_RootOrder: 0
 --- !u!4 &466572
 Transform:
   m_ObjectHideFlags: 1
@@ -27,11 +57,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.41568756, y: 5.18330002, z: 0}
+  m_LocalPosition: {x: 1.36999178, y: -.16117546, z: 0}
   m_LocalScale: {x: 6.02016735, y: 6.02016735, z: 6.02016735}
-  m_Children: []
+  m_Children:
+  - {fileID: 445726}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!54 &5479588
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121114}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &8262172
 AudioSource:
   m_ObjectHideFlags: 1
@@ -101,7 +147,19 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &11410540
+--- !u!114 &11449964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd194fbeff4752a4d9d571506ebd2232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeActivation: 0
+--- !u!114 &11472254
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,11 +167,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 147714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 420d1a3fb88cf9646a8fe12231d65087, type: 3}
+  m_Script: {fileID: 11500000, guid: 489bbdc601fdc394abdec1c59a033d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonusSpeed: 2
-  duration: 5
 --- !u!114 &11490720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,6 +185,18 @@ MonoBehaviour:
   loopEnter: {fileID: 8300000, guid: 15d198f0e2b398b47a5ee564e6576139, type: 3}
   loopComplete: {fileID: 8300000, guid: d13d42b7aee80bc458ababb3430e1f71, type: 3}
   loopExit: {fileID: 8300000, guid: dcb525db7526eb84da2e7581ae9ce100, type: 3}
+--- !u!135 &13512178
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121114}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .100000001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &13579054
 SphereCollider:
   m_ObjectHideFlags: 1
