@@ -12,6 +12,8 @@ public class PickupBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+		Debug.Log(gameObject.name);
+
         currentPositions = new Dictionary<int, loopObject>();
         powerUp = GetComponent<PowerUp>();
 
@@ -44,10 +46,12 @@ public class PickupBehaviour : MonoBehaviour {
 
         if (currentPositions[other.gameObject.GetInstanceID()].loopComplete())
         {
-            other.SendMessage("SetItem", powerUp);
             currentPositions[other.gameObject.GetInstanceID()].destroy();
             currentPositions.Remove(other.gameObject.GetInstanceID());
-            Trigger();
+			if(!(gameObject.name == "Pufferfish")){
+				other.SendMessage("SetItem", powerUp);
+				Trigger();
+			}
         }
 
         
