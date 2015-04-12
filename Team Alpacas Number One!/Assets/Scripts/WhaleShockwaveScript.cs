@@ -24,8 +24,7 @@ public class WhaleShockwaveScript : MonoBehaviour {
 		}
 	}
 
-	public void setPlayer(string playerTag){
-		player=GameObject.FindGameObjectWithTag(playerTag);
+	public void setPlayer(GameObject player){
 		Physics.IgnoreCollision (player.GetComponent<BoxCollider>(), gameObject.GetComponent<SphereCollider>());
 	}
 }
