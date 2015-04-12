@@ -37,7 +37,7 @@ GameObject:
   - 114: {fileID: 11409088}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.82800007, y: 5.61999989, z: 0}
+  m_LocalPosition: {x: -4, y: 0, z: 0}
   m_LocalScale: {x: .180539608, y: .180539474, z: .180539474}
   m_Children:
   - {fileID: 407946}
@@ -122,11 +122,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d18df93a00334845b7d46b4b0897302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  rotaSpeed: 3
-  turnLeft: 106
-  turnRight: 108
-  itemUse: 107
+  speed: 4
+  rotaSpeed: 2
+  turnLeft: 97
+  turnRight: 100
+  itemUse: 115
 --- !u!114 &11409088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,10 +169,10 @@ MonoBehaviour:
   Heart: {fileID: 180398, guid: aeadbb95f62257243b265ed3f92040da, type: 2}
   invincibility: 10
   respawnPoint: {fileID: 176424, guid: 759ebb933a1d366469afe3b3bb61be49, type: 2}
-  deathPoint: {fileID: 137612, guid: 9137248ec71b67c498479ffafd0a678c, type: 2}
+  deathPoint: {fileID: 0}
   spawnDistance: 2.01999998
   isDead: 0
-  border: 1
+  border: 2
   shieldEffectPrefab: {fileID: 108564, guid: 6858e7cb74401b244a76f6431516d487, type: 2}
 --- !u!114 &11459600
 MonoBehaviour:
