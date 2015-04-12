@@ -13,6 +13,9 @@ public class PufferfishPowerUp : PowerUp {
 	
 	public override void Activate(GameObject player)
 	{
+        Color newColor = player.GetComponent<LineCollision>().trailColor;
+        newColor.a = 1;
+        GetComponent<SpriteRenderer>().material.color = newColor;
 		activePlayer = player.name;
 		KillzoneScript script = transform.FindChild ("Killzone").GetComponent<KillzoneScript> ();
 		script.ChangeActivePlayer (activePlayer);

@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour {
     private float incrementTimer = 3.0f;
     private float currentTimer = 0.0f;
 
-	// Use this for initialization
-	void Start () {
+    void Awake()
+    {
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
 
@@ -26,6 +26,18 @@ public class GameManager : MonoBehaviour {
 
         playerList.Add(player1);
         playerList.Add(player2);
+    }
+
+	// Use this for initialization
+	void Start () {
+       //player1 = GameObject.Find("Player1");
+       //player2 = GameObject.Find("Player2");
+       //
+       //playerList = new List<GameObject>();
+       //itemsOnField = new List<GameObject>();
+       //
+       //playerList.Add(player1);
+       //playerList.Add(player2);
 	}
 	
 	// Update is called once per frame

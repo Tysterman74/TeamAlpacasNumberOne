@@ -43,7 +43,7 @@ public class KillzoneScript : MonoBehaviour {
 
 	public void OnCollisionEnter(Collision col)
 	{
-		if (col.rigidbody.tag == "Player" && isActive && activePlayer != col.gameObject.name) {
+		if (col.rigidbody.tag.Contains("Player") && isActive && activePlayer != col.gameObject.name) {
 			col.gameObject.GetComponent<PlayerState> ().loseLife ();
 		}
 	}

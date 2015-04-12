@@ -13,7 +13,7 @@ public class PlayerState : MonoBehaviour {
 	private GameObject heartContainer;
 	private GameObject[] hearts;
     private bool invulnerable = false;
-    public float invincibility = 10.0f;
+    public float invincibility = 3.0f;
     public GameObject respawnPoint;
     public GameObject deathPoint;
     public float spawnDistance;
@@ -60,19 +60,21 @@ public class PlayerState : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-        if (isDead)
+        //if (isDead)
+        //{
+        if (invincibility < 0.0f)
         {
-            if (invincibility <= 0.0f)
-            {
-                invulnerable = false;  
-                isDead = false;
-                invincibility = 10.0f;
-                Destroy(shieldEffect);
-                for (int i = 0; i < gm.GetPlayerList().Count; i++)
-                    Physics.IgnoreCollision(GetComponent<Collider>(), gm.GetPlayerList()[i].GetComponent<Collider>(), false);
-            }
+            invulnerable = false;
+            invincibility = 0f;
+            Destroy(shieldEffect);
+            for (int i = 0; i < gm.GetPlayerList().Count; i++)
+                Physics.IgnoreCollision(GetComponent<Collider>(), gm.GetPlayerList()[i].GetComponent<Collider>(), false);
+        }
+        else if (invincibility != 0)
+        {
             invincibility -= Time.deltaTime;
         }
+        //}
     }
 
 	public void setInvulnerability(bool invulnerable)
@@ -145,6 +147,8 @@ public class PlayerState : MonoBehaviour {
         }
         
         this.transform.position = spawnPoint;
+        isDead = false;
+        invincibility = 3.0f;
     }
 
 	public void setUIItem(PowerUp powerUp){
