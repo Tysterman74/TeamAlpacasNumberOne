@@ -7,7 +7,10 @@ public class BackgroundSwitching : MonoBehaviour {
 
     public GameObject picture1;
     public GameObject picture2;
+    public GameObject picture3;
     public bool moveRight;
+
+    private GameObject resetCheckPoint;
 
     private Vector3 originalPic1Pos;
     private Vector3 originalPic2Pos;
@@ -30,8 +33,10 @@ public class BackgroundSwitching : MonoBehaviour {
 	void Start () {
         leftPortal = GameObject.Find("LeftPortal");
         rightPortal = GameObject.Find("RightPortal");
+        resetCheckPoint = transform.FindChild("ResetCheckPoint").gameObject;
 
         originalPic1Pos = picture1.transform.position;
+        //Use this for reseting.
         originalPic2Pos = picture2.transform.position;
 
         arenaWidth = Vector2.Distance(new Vector2(leftPortal.transform.position.x, leftPortal.transform.position.y),
@@ -52,21 +57,27 @@ public class BackgroundSwitching : MonoBehaviour {
 
     void FixedUpdate()
     {
-        picture1.transform.position += new Vector3(0.075f, 0, 0);
-        picture2.transform.position += new Vector3(0.075f, 0, 0);
 
         if (moveRight)
         {
 
-            if (picture1.transform.position.x - picWidth / 2.0f > cam.transform.position.x + camWidth / 2.0f)
+            if (picture1.transform.position.x - picWidth / 2.0f >= resetCheckPoint.transform.position.x)
             {
-                picture1.transform.position = originalPic2Pos;
+                picture1.transform.position = originalPic1Pos + new Vector3(0.075f, 0, 0);
             }
 
-            if (picture2.transform.position.x - picWidth / 2.0f > cam.transform.position.x + camWidth / 2.0f)
+            if (picture2.transform.position.x - picWidth / 2.0f >= resetCheckPoint.transform.position.x)
             {
-                picture2.transform.position = originalPic2Pos;
+                picture2.transform.position = originalPic1Pos + new Vector3(0.075f, 0, 0);
             }
+
+            if (picture3.transform.position.x - picWidth / 2.0f >= resetCheckPoint.transform.position.x)
+            {
+                picture3.transform.position = originalPic1Pos + new Vector3(0.075f, 0, 0);
+            }
+            picture1.transform.position += new Vector3(0.075f, 0, 0);
+            picture2.transform.position += new Vector3(0.075f, 0, 0);
+            picture3.transform.position += new Vector3(0.075f, 0, 0);
             //if (!pic1Rend.isVisible)
             //{
             //    picture1.transform.position = originalPic2Pos;

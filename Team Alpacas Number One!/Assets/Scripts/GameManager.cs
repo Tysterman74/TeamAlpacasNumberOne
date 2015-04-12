@@ -23,21 +23,21 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        playerList = new List<GameObject>();
-        itemsOnField = new List<GameObject>();
-        for (int i = 1; i <= numPlayers; i++)
-        { 
-            
-        }
+        //playerList = new List<GameObject>();
+        //itemsOnField = new List<GameObject>();
+        //for (int i = 1; i <= numPlayers; i++)
+        //{ 
+        //    
+        //}
 
-        /*player1 = GameObject.Find("Player1");
+        player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
 
         playerList = new List<GameObject>();
         itemsOnField = new List<GameObject>();
 
         playerList.Add(player1);
-        playerList.Add(player2);*/
+        playerList.Add(player2);
     }
 
 	// Use this for initialization
