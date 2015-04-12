@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
 
     public float turnIncrement;
     public float speedIncrement;
+    public float trailIncrement;
+    public float incrementTimer = 3.0f;
 
     private List<GameObject> itemsOnField;
     private List<GameObject> playerList;
@@ -13,7 +15,6 @@ public class GameManager : MonoBehaviour {
     private GameObject player1;
     private GameObject player2;
 
-    private float incrementTimer = 3.0f;
     private float currentTimer = 0.0f;
 
     void Awake()
@@ -57,6 +58,8 @@ public class GameManager : MonoBehaviour {
         player2.GetComponent<PlayerController>().AddSpeed(speedIncrement);
         player1.GetComponent<PlayerController>().AddTurn(turnIncrement);
         player2.GetComponent<PlayerController>().AddTurn(turnIncrement);
+        player1.GetComponent<LineCollision>().addTrailLength(trailIncrement);
+        player2.GetComponent<LineCollision>().addTrailLength(trailIncrement);
     }
 
     public List<GameObject> GetPlayerList()
