@@ -62,6 +62,11 @@ public class PlayerController : MonoBehaviour {
     }
     */
 
+    public void AddTurn(float increment)
+    {
+        rotaSpeed += increment;
+    }
+
     public void AddSpeed(float increment)
     {
         speed += increment;
