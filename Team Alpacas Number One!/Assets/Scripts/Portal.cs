@@ -100,8 +100,8 @@ public class Portal : MonoBehaviour {
             //
             //}
             col.transform.position = playerPos;
+            col.gameObject.GetComponent<LineCollision>().portalJump();
+            noise.Play();
         }
-        col.gameObject.GetComponent<LineCollision>().portalJump();
-        noise.Play();
     }
 }

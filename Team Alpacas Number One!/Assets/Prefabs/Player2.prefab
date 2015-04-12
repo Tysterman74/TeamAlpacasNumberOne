@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.82800007, y: 5.61999989, z: 0}
+  m_LocalPosition: {x: 4.94000006, y: 1.44000006, z: 0}
   m_LocalScale: {x: .180539608, y: .180539474, z: .180539474}
   m_Children:
   - {fileID: 407946}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d18df93a00334845b7d46b4b0897302, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
   rotaSpeed: 2
   turnLeft: 106
   turnRight: 108
@@ -152,8 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numLives: 5
-  deadPlanePrefab: {fileID: 187192, guid: 2d84b8e76e9e08640968d590ee5817b3, type: 2}
-  playerUI: {fileID: 155416, guid: 1299610b647a8db488545db68e7843e8, type: 2}
+  deadPlanePrefab: {fileID: 108668, guid: f0cc3de263ca88f40b294bc3847d0edd, type: 2}
+  playerUI: {fileID: 159418, guid: 1299610b647a8db488545db68e7843e8, type: 2}
   Heart: {fileID: 180398, guid: aeadbb95f62257243b265ed3f92040da, type: 2}
   invincibility: 10
   respawnPoint: {fileID: 176424, guid: 759ebb933a1d366469afe3b3bb61be49, type: 2}
