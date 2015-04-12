@@ -21,7 +21,9 @@ public class PickupBehaviour : MonoBehaviour {
     public void Trigger() //all pickups should override this method
     {
         //Destroy(gameObject);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        GetComponent<SphereCollider>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void OnTriggerEnter(Collider other)

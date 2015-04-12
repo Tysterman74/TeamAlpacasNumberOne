@@ -14,9 +14,11 @@ public class HedgehogPowerUp : PowerUp {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
+        print("active");
         if (activated)
         {
+            print("active");
             duration -= Time.deltaTime;
             if (duration < 0)
             {
@@ -30,6 +32,7 @@ public class HedgehogPowerUp : PowerUp {
 
     public override void Activate(GameObject player)
     {
+        playerHolding = player;
         player.GetComponent<PlayerController>().SetBonusSpeed(bonusSpeed);
         activated = true;
         //player.GetComponent<Rigidbody>().velocity += transform.up * bonusSpeed;
