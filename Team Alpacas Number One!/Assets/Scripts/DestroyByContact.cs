@@ -14,7 +14,6 @@ public class DestroyByContact : MonoBehaviour {
     {
         if (col.rigidbody.tag == "Player")
         {
-            Destroy(gameObject);
             playerstate.loseLife();
         }
     }

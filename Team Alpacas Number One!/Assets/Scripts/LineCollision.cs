@@ -61,6 +61,11 @@ public class LineCollision : MonoBehaviour {
         }
     }
 
+    public void addTrailLength(float addition)
+    {
+        maxLength += addition;
+    }
+
     public bool doesSegmentIntersect(lineObject other)
     {
         foreach (lineObject trailLine in trail)
@@ -72,10 +77,11 @@ public class LineCollision : MonoBehaviour {
         return false;
     }
 
-    public void destroyIntersection(Vector2 start, Vector2 end)
+    public Vector2? destroyIntersection(Vector2 start, Vector2 end)
     {
         line otherLine = new line(start, end);
         bool hit = true;
+        line result = null;
         while (hit)
         {
             hit = false;
@@ -85,6 +91,9 @@ public class LineCollision : MonoBehaviour {
                 {
                     Debug.Log("hi");
                     hit = true;
+                    Vector2 resultstart = (trail[i]).getStart();
+                    Vector2 resultend = (trail[i]).getEnd();
+                    result = new line(resultstart, resultend);
                     int firstIndex = i - 10;
                     if (firstIndex < 0)
                         firstIndex = 0;
@@ -99,6 +108,19 @@ public class LineCollision : MonoBehaviour {
                 
             }
         }
+        if(result != null)
+        {
+            float rayAngle = Mathf.Atan2((end - start).y, (end - start).x);
+            float mirrorAngle;
+            if(Vector2.Angle((end - start), result.end - result.start) < 90)
+                mirrorAngle = Mathf.Rad2Deg * Mathf.Atan2((result.end - result.start).y, (result.end - result.start).x);
+            else
+                mirrorAngle = Mathf.Rad2Deg * Mathf.Atan2((result.start - result.end).y, (result.start - result.end).x);
+            float finalAngle = ((rayAngle + 2 * (mirrorAngle - rayAngle))) % 360;
+            return new Vector2(Mathf.Cos(finalAngle), Mathf.Sin(finalAngle));
+        }
+        else
+            return null;
     }
 
     public void portalJump()
@@ -123,6 +145,16 @@ public class LineCollision : MonoBehaviour {
         {
             this.start = start;
             this.end = end;
+        }
+
+        public Vector2 getStart()
+        {
+            return start;
+        }
+
+        public Vector2 getEnd()
+        {
+            return end;
         }
 
         public bool intersects(line other)
