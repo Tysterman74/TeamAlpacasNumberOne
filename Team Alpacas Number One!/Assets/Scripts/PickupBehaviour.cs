@@ -8,10 +8,13 @@ public class PickupBehaviour : MonoBehaviour {
     private PowerUp powerUp;
     private AudioSource sound;
     Dictionary<int, loopObject> currentPositions; //int is player ID, float is their relative position
-
+    public AudioClip loopEnter;
+    public AudioClip loopComplete;
+    public AudioClip loopExit;
     // Use this for initialization
     void Start()
     {
+        sound = GetComponent<AudioSource>();
 		Debug.Log(gameObject.name);
 
         currentPositions = new Dictionary<int, loopObject>();
@@ -30,6 +33,8 @@ public class PickupBehaviour : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        sound.clip = loopEnter;
+        sound.Play();
         if (!other.tag.Contains("Player"))
             return;
         GameObject UI;
@@ -46,6 +51,8 @@ public class PickupBehaviour : MonoBehaviour {
 
         if (currentPositions[other.gameObject.GetInstanceID()].loopComplete())
         {
+            sound.clip = loopComplete;
+            sound.Play();
             currentPositions[other.gameObject.GetInstanceID()].destroy();
             currentPositions.Remove(other.gameObject.GetInstanceID());
 			if(!(gameObject.name == "Pufferfish")){
@@ -59,6 +66,8 @@ public class PickupBehaviour : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
+        sound.clip = loopExit;
+        sound.Play();
         if (!other.tag.Contains("Player"))
             return;
         currentPositions[other.gameObject.GetInstanceID()].destroy();

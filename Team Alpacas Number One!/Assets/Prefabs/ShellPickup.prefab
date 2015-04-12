@@ -57,6 +57,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loopUIElement: {fileID: 145336, guid: da645ab8e735013428107456c5cb6675, type: 2}
+  loopEnter: {fileID: 8300000, guid: 15d198f0e2b398b47a5ee564e6576139, type: 3}
+  loopComplete: {fileID: 8300000, guid: d13d42b7aee80bc458ababb3430e1f71, type: 3}
+  loopExit: {fileID: 8300000, guid: dcb525db7526eb84da2e7581ae9ce100, type: 3}
 --- !u!135 &13592524
 SphereCollider:
   m_ObjectHideFlags: 1
