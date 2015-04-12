@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 public class WhaleShockwaveScript : MonoBehaviour {
-	private GameObject player;
 	private Vector2 position;
 	public float expandConstant;
 	public float maxSize;
@@ -10,7 +9,6 @@ public class WhaleShockwaveScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		position = transform.position;
-		player = null;
 	}
 	
 	// Update is called once per frame

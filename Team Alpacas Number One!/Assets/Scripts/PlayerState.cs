@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerState : MonoBehaviour {
     public int numLives;
@@ -128,4 +129,8 @@ public class PlayerState : MonoBehaviour {
             this.transform.position = spawnPoint + offSet;
         }
     }
+
+	public void setUIItem(PowerUp powerUp){
+		ui.transform.FindChild ("ItemImage").GetComponent<Image> ().sprite = powerUp.gameObject.GetComponent<SpriteRenderer> ().sprite;
+	}
 }

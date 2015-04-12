@@ -21,6 +21,7 @@ public class TestPlayerInventory : MonoBehaviour {
         print("Item get!");
         item = powerUp;
         hasItem = true;
+		gameObject.GetComponent<PlayerState> ().setUIItem (powerUp);
     }
 
     public bool getHasItem()
