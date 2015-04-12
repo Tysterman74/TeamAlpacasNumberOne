@@ -105,13 +105,7 @@ public class LineCollision : MonoBehaviour {
         }
         if(result != null)
         {
-            Vector2 ray = end-start;
-            Vector2 normal = new Vector2(-result.getTranslation().y, result.getTranslation().x);
-            if (Vector2.Angle(ray, normal) < 90)
-            {
-                normal = -1 * normal;
-            }
-            return Random.insideUnitCircle * ray.magnitude;
+            return (result.end - result.start).normalized;
         }
         else
             return null;
