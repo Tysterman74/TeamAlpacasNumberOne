@@ -18,6 +18,9 @@ public class BackgroundSwitching : MonoBehaviour {
     private float camWidth;
     private float camHeight;
 
+    private float arenaWidth;
+
+
     private SpriteRenderer pic1Rend;
     private SpriteRenderer pic2Rend;
 
@@ -30,6 +33,9 @@ public class BackgroundSwitching : MonoBehaviour {
 
         originalPic1Pos = picture1.transform.position;
         originalPic2Pos = picture2.transform.position;
+
+        arenaWidth = Vector2.Distance(new Vector2(leftPortal.transform.position.x, leftPortal.transform.position.y),
+            new Vector2(rightPortal.transform.position.x, rightPortal.transform.position.y));
 
         cam = Camera.main;
         camHeight = 2.0f * Camera.main.orthographicSize;
