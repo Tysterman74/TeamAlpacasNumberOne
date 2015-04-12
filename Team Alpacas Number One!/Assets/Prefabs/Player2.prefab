@@ -167,8 +167,10 @@ MonoBehaviour:
   playerUI: {fileID: 155416, guid: 1299610b647a8db488545db68e7843e8, type: 2}
   Heart: {fileID: 180398, guid: aeadbb95f62257243b265ed3f92040da, type: 2}
   invincibility: 10
-  deathPoint: {fileID: 137612, guid: 9137248ec71b67c498479ffafd0a678c, type: 2}
   respawnPoint: {fileID: 176424, guid: 759ebb933a1d366469afe3b3bb61be49, type: 2}
+  deathPoint: {fileID: 137612, guid: 9137248ec71b67c498479ffafd0a678c, type: 2}
+  spawnDistance: 2.01999998
+  border: 1
 --- !u!114 &11459600
 MonoBehaviour:
   m_ObjectHideFlags: 1

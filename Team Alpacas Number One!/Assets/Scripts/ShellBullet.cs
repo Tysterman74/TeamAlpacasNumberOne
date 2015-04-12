@@ -27,7 +27,15 @@ public class ShellBullet : MonoBehaviour {
             }
         }
 	}
-	
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag.Contains("Player"))
+        {
+            other.gameObject.GetComponent<PlayerState>().loseLife();
+        }
+    }
+
 	// Update is called once per frame
 	void FixedUpdate () {
         foreach(LineCollision lines in enemyTrails)

@@ -12,6 +12,7 @@ public class DestroyByContact : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
+        
         if (col.rigidbody.tag == "Player")
         {
             playerstate.loseLife();
