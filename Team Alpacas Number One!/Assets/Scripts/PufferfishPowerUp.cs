@@ -2,11 +2,10 @@
 using System.Collections;
 
 public class PufferfishPowerUp : PowerUp {
-	PlayerState playerstate;
+	bool isActive = false;
 
 	// Use this for initialization
 	public override void Start () {
-		playerstate = GetComponent<PlayerState>();
 	}
 	
 	// Update is called once per frame
@@ -20,7 +19,9 @@ public class PufferfishPowerUp : PowerUp {
 
 	void OnCollisionEnter(Collision col)
 	{
-		playerstate.loseLife();
-		Debug.Log ("Enter");
+		if (col.rigidbody.tag == "Player") {
+			col.gameObject.GetComponent<PlayerState> ().loseLife ();
+			isActive = true;
+		}
 	}
 }
