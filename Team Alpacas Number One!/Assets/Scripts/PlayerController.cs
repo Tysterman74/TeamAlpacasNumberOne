@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = transform.up * (speed + bonusSpeed);
     }
 
+	/*
     void OnCollisionEnter(Collision col)
     {
         if (col.rigidbody.tag == "Player")
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour {
             rb.AddRelativeForce(-transform.up*100, ForceMode.Impulse);
         }
     }
+    */
 
     public void AddSpeed(float increment)
     {
