@@ -17,16 +17,27 @@ public class GameManager : MonoBehaviour {
 
     private float currentTimer = 0.0f;
 
+    //reminder to self: ask ben about the UI part for this!
+    int numPlayers = 2;
+    string nthPlayer;
+
     void Awake()
     {
-        player1 = GameObject.Find("Player1");
+        playerList = new List<GameObject>();
+        itemsOnField = new List<GameObject>();
+        for (int i = 1; i <= numPlayers; i++)
+        { 
+            
+        }
+
+        /*player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");
 
         playerList = new List<GameObject>();
         itemsOnField = new List<GameObject>();
 
         playerList.Add(player1);
-        playerList.Add(player2);
+        playerList.Add(player2);*/
     }
 
 	// Use this for initialization

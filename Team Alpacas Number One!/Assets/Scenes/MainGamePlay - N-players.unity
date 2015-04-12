@@ -276,7 +276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408490, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1024
       objectReference: {fileID: 0}
     - target: {fileID: 22353196, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}
       propertyPath: m_RenderMode
@@ -422,6 +422,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   turnIncrement: 0
   speedIncrement: 0
+  trailIncrement: 0
+  incrementTimer: 3
 --- !u!4 &1083420681
 Transform:
   m_ObjectHideFlags: 0
