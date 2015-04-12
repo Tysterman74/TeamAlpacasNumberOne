@@ -13,6 +13,7 @@ GameObject:
   - 135: {fileID: 13519794}
   - 212: {fileID: 21260424}
   - 82: {fileID: 8292264}
+  - 95: {fileID: 9579170}
   m_Layer: 0
   m_Name: WhalePickup
   m_TagString: Pickup
@@ -89,6 +90,23 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9579170
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b93cd51528f82f4bb5b40730f0346d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11455894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,7 +186,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -6.23665619, y: -.711995602}
+  m_AnchoredPosition: {x: .46503973, y: 5.64910603}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

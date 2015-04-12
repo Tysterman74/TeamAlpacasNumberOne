@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11435724}
   - 212: {fileID: 21230404}
   - 82: {fileID: 8263224}
+  - 95: {fileID: 9572634}
   m_Layer: 0
   m_Name: ShellPickup
   m_TagString: Pickup
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.22710001, y: 2.4440999, z: 0}
+  m_LocalPosition: {x: .927396297, y: 6.62520409, z: 0}
   m_LocalScale: {x: .477805585, y: .477805614, z: .796342671}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,6 +102,23 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9572634
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140594}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4178650097661264aa49f10663d16ae2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11435724
 MonoBehaviour:
   m_ObjectHideFlags: 1
