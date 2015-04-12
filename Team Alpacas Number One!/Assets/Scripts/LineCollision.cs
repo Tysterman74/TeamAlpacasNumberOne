@@ -9,6 +9,7 @@ public class LineCollision : MonoBehaviour {
     private float currentLength = 0;
     private List<LineCollision> enemyTrails;
     private PlayerState state; //reference to our playerstatescript
+    public Color trailColor;
 	// Use this for initialization
 	void Start () {
         trail = new List<lineObject>();
@@ -17,7 +18,6 @@ public class LineCollision : MonoBehaviour {
         state = GetComponent<PlayerState>();
 
         //get list of enemy players
-        int playerNumber = 1;
         GameObject[] other = GameObject.FindGameObjectsWithTag("Player");
         foreach( GameObject player in other)
         {
@@ -26,12 +26,13 @@ public class LineCollision : MonoBehaviour {
                 enemyTrails.Add(player.GetComponent<LineCollision>());
             }
         }
+        GetComponent<ParticleSystemRenderer>().sortingLayerName = "cloudParticles";
 	}
 	
 	// Update is called once per frame
     void FixedUpdate()
     {
-        lineObject line = new lineObject(lastPosition, transform.position, Instantiate(trailGraphic) as GameObject);
+        lineObject line = new lineObject(lastPosition, transform.position, Instantiate(trailGraphic) as GameObject, trailColor);
         trail.Add(line); //add it to the end of our trail list (beginning of in-game trail)
 
         foreach (LineCollision other in enemyTrails)
@@ -167,7 +168,7 @@ public class LineCollision : MonoBehaviour {
     public class lineObject : line
     {
         private GameObject graphic;
-        public lineObject(Vector2 start, Vector2 end, GameObject trailGraphicPrefab) : base(start, end)
+        public lineObject(Vector2 start, Vector2 end, GameObject trailGraphicPrefab, Color trailColor) : base(start, end)
         {
             Vector2 midpoint = (start + end) / 2;
             Vector2 translation = getTranslation();
@@ -175,6 +176,7 @@ public class LineCollision : MonoBehaviour {
             graphic.transform.Translate(midpoint, Space.World);
             graphic.transform.Rotate(0, 0, 90 - (180 * Mathf.Atan2(translation.x, translation.y) / Mathf.PI), Space.World);
             graphic.transform.localScale = new Vector3(translation.magnitude * 2, 0.5f, 1);
+            graphic.GetComponent<SpriteRenderer>().color = trailColor;
 
         }
 

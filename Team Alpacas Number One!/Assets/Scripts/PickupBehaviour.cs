@@ -77,6 +77,17 @@ public class PickupBehaviour : MonoBehaviour {
         currentPositions.Remove(other.gameObject.GetInstanceID());
     }
 
+    public void EraseAllUI(GameObject p1, GameObject p2)
+    {
+        if (currentPositions.ContainsKey(p1.GetInstanceID()) && currentPositions.ContainsKey(p2.GetInstanceID()))
+        {
+            currentPositions[p1.GetInstanceID()].destroy();
+            currentPositions[p2.GetInstanceID()].destroy();
+            currentPositions.Remove(p1.GetInstanceID());
+            currentPositions.Remove(p2.GetInstanceID());
+        }
+    }
+
     public class loopObject
     {
         public Vector2 currentPosition;

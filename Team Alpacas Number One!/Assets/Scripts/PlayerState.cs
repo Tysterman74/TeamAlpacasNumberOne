@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerState : MonoBehaviour {
     public int numLives;
@@ -26,9 +27,13 @@ public class PlayerState : MonoBehaviour {
     public float border;
 	private bool activePuffer = false;
 
+    private GameManager gm;
+
     // Use this for initialization
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         height = 2.0f * Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
         spriRender = GetComponent<SpriteRenderer>();
@@ -90,6 +95,7 @@ public class PlayerState : MonoBehaviour {
         if (!isDead)
         {
             isDead = true;
+            gm.clearAllItemUI();
             StartCoroutine(respawn());
         }
         collid.enabled = false;
@@ -100,14 +106,15 @@ public class PlayerState : MonoBehaviour {
         {
             Debug.Log("Dead");
         }
-        
-        this.transform.position = new Vector3(0, 0, 0);
+
 		Destroy (hearts [numLives - 1]);
     }
 
     IEnumerator respawn()
     {
+        //print("fucking");
         this.transform.position = deathPos;
+
         yield return new WaitForSeconds(5.0f);
         Vector3 spawnPoint = new Vector3(Random.Range((border - width / 2), (width / 2 - border)), Random.Range((border - height / 2), (height / 2 - border)), 0.0f);
         Vector3 offSet = new Vector3(100.0f, 100.0f, 0.0f);
@@ -122,4 +129,8 @@ public class PlayerState : MonoBehaviour {
             this.transform.position = spawnPoint + offSet;
         }
     }
+
+	public void setUIItem(PowerUp powerUp){
+		ui.transform.FindChild ("ItemImage").GetComponent<Image> ().sprite = powerUp.gameObject.GetComponent<SpriteRenderer> ().sprite;
+	}
 }
