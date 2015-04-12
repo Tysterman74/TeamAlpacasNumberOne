@@ -61,6 +61,11 @@ public class LineCollision : MonoBehaviour {
         }
     }
 
+    public void addTrailLength(float addition)
+    {
+        maxLength += addition;
+    }
+
     public bool doesSegmentIntersect(lineObject other)
     {
         foreach (lineObject trailLine in trail)
