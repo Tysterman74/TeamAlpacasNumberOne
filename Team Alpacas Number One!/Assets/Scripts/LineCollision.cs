@@ -105,14 +105,13 @@ public class LineCollision : MonoBehaviour {
         }
         if(result != null)
         {
-            float rayAngle = Mathf.Atan2((end - start).y, (end - start).x);
-            float mirrorAngle;
-            if(Vector2.Angle((end - start), result.end - result.start) < 90)
-                mirrorAngle = Mathf.Rad2Deg * Mathf.Atan2((result.end - result.start).y, (result.end - result.start).x);
-            else
-                mirrorAngle = Mathf.Rad2Deg * Mathf.Atan2((result.start - result.end).y, (result.start - result.end).x);
-            float finalAngle = ((rayAngle + 2 * (mirrorAngle - rayAngle))) % 360;
-            return new Vector2(Mathf.Cos(finalAngle), Mathf.Sin(finalAngle));
+            Vector2 ray = end-start;
+            Vector2 normal = new Vector2(-result.getTranslation().y, result.getTranslation().x);
+            if (Vector2.Angle(ray, normal) < 90)
+            {
+                normal = -1 * normal;
+            }
+            return Random.insideUnitCircle * ray.magnitude;
         }
         else
             return null;

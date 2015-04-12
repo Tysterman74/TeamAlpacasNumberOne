@@ -11,8 +11,11 @@ public class Portal : MonoBehaviour {
     float height;
     float width;
 
+    private AudioSource noise;
+
 	// Use this for initialization
 	void Start () {
+        noise = GetComponent<AudioSource>();
         GetComponent<BoxCollider>().size = size;
 
         
@@ -99,5 +102,6 @@ public class Portal : MonoBehaviour {
             col.transform.position = playerPos;
         }
         col.gameObject.GetComponent<LineCollision>().portalJump();
+        noise.Play();
     }
 }
