@@ -13,9 +13,10 @@ GameObject:
   - 114: {fileID: 11477018}
   - 114: {fileID: 11489292}
   - 82: {fileID: 8263410}
+  - 95: {fileID: 9514690}
   m_Layer: 0
   m_Name: SealPowerUp
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.64999962, y: -1.12, z: 0}
+  m_LocalPosition: {x: -6.77862692, y: .871372223, z: 0}
   m_LocalScale: {x: .592184901, y: .565266967, z: 2.69174767}
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,6 +102,23 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!95 &9514690
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131138}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b93cd51528f82f4bb5b40730f0346d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11477018
 MonoBehaviour:
   m_ObjectHideFlags: 1
