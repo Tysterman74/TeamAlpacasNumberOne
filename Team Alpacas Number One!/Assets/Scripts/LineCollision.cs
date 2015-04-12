@@ -183,7 +183,7 @@ public class LineCollision : MonoBehaviour {
             this.graphic = trailGraphicPrefab;
             graphic.transform.Translate(midpoint, Space.World);
             graphic.transform.Rotate(0, 0, 90 - (180 * Mathf.Atan2(translation.x, translation.y) / Mathf.PI), Space.World);
-            graphic.transform.localScale = new Vector3(translation.magnitude * 2, 0.5f, 1);
+            graphic.transform.localScale = new Vector3(translation.magnitude * 2, 1, 1);
 
         }
 
