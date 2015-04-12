@@ -57,6 +57,7 @@ public class PickupBehaviour : MonoBehaviour {
             currentPositions.Remove(other.gameObject.GetInstanceID());
 			if(gameObject.name == "Pufferfish"){
 				other.gameObject.GetComponent<PlayerState> ().changeActivePuffer ();
+				powerUp.Activate(other.gameObject);
 			}
 			else{
 				other.SendMessage("SetItem", powerUp);
