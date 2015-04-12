@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class seahorseBulletScript : MonoBehaviour {
     private List<LineCollision> enemyTrails;
     private Vector2 lastPosition;
+    public AudioClip hitSound;
 	// Use this for initialization
 	void Start () {
         lastPosition = transform.position;
@@ -38,7 +39,12 @@ public class seahorseBulletScript : MonoBehaviour {
 	void FixedUpdate () {
         foreach(LineCollision lines in enemyTrails)
         {
-            lines.destroyIntersection(lastPosition, transform.position);
+            if (lines.destroyIntersection(lastPosition, transform.position) != null)
+
+            {
+                GetComponent<AudioSource>().clip = hitSound;
+                GetComponent<AudioSource>().Play();
+            }
         }
         lastPosition = transform.position;
 	}

@@ -6,7 +6,7 @@ public class PickupBehaviour : MonoBehaviour {
 
     public GameObject loopUIElement;
     private PowerUp powerUp;
-
+    private AudioSource sound;
     Dictionary<int, loopObject> currentPositions; //int is player ID, float is their relative position
 
     // Use this for initialization

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 public class ShellBullet : MonoBehaviour {
     private List<LineCollision> enemyTrails;
     private Vector2 lastPosition;
-    private Rigidbody rigidbody;
+    private Rigidbody rigid;
+    public AudioClip hitSound;
 	// Use this for initialization
 	void Start () {
         lastPosition = transform.position;
         enemyTrails = new List<LineCollision>();
-        rigidbody = GetComponent<Rigidbody>();
+        rigid = GetComponent<Rigidbody>();
 
         int playerNumber = 1;
         GameObject other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
@@ -43,8 +44,10 @@ public class ShellBullet : MonoBehaviour {
             Vector2? newDirection = lines.destroyIntersection(lastPosition, transform.position);
             if (newDirection != null)
             {
-                rigidbody.velocity = (Vector3)newDirection * rigidbody.velocity.magnitude;
+                rigid.velocity = (Vector3)newDirection * rigid.velocity.magnitude;
                 transform.rotation = Quaternion.AngleAxis((Mathf.Atan2(((Vector2)newDirection).y, ((Vector2)newDirection).x) * Mathf.Rad2Deg) - 90, Vector3.forward);
+                GetComponent<AudioSource>().clip = hitSound;
+                GetComponent<AudioSource>().Play();
             }
         }
         lastPosition = transform.position;
