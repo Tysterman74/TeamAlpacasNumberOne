@@ -88,6 +88,8 @@ public class PlayerState : MonoBehaviour {
 	
 	public void loseLife()
     {
+        if (invulnerable)
+            return;
         GameObject deadPlane;
         deadPlane = Instantiate(deadPlanePrefab, this.transform.position, this.transform.rotation) as GameObject;
         Destroy(deadPlane, 5);
