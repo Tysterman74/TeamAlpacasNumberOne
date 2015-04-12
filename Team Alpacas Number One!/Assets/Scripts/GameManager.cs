@@ -30,5 +30,7 @@ public class GameManager : MonoBehaviour {
         print("INCREASE MOFO");
         player1.GetComponent<PlayerController>().AddSpeed(0.75f);
         player2.GetComponent<PlayerController>().AddSpeed(0.75f);
+        player1.GetComponent<PlayerController>().AddTurn(0.35f);
+        player2.GetComponent<PlayerController>().AddTurn(0.35f);
     }
 }
