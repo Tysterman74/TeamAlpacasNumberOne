@@ -11,6 +11,7 @@ public class PlayerState : MonoBehaviour {
 	private GameObject ui;
 	private GameObject heartContainer;
 	private GameObject[] hearts;
+	private bool invulnerable = false;
 
     // Use this for initialization
 	void Start () {
@@ -34,8 +35,15 @@ public class PlayerState : MonoBehaviour {
 
     }
 
+	public void setInvulnerability(bool invulnerable)
+	{
+		this.invulnerable = invulnerable;
+	}
+
     public void loseLife()
     {
+		if (invulnerable)
+			return;
         numLives -= 1;
         shake.screenSlam(0.2f,0.5f);
         trail.clearTrail();
