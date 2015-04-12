@@ -93,10 +93,6 @@ public class PlayerState : MonoBehaviour {
             Debug.Log("Dead");
         }
 
-        GameObject deadPlane;
-        deadPlane = Instantiate(deadPlanePrefab, this.transform.position, this.transform.rotation) as GameObject;
-        Destroy(deadPlane, 5);
-        deadPlane.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity;
 		Destroy (hearts [numLives - 1]);
     }
 
