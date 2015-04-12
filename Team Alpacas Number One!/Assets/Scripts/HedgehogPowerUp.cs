@@ -15,7 +15,6 @@ public class HedgehogPowerUp : PowerUp {
 	
 	// Update is called once per frame
 	public override void Update () {
-        print("active");
         if (activated)
         {
             print("active");
