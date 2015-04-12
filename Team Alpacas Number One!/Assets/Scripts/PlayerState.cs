@@ -27,6 +27,9 @@ public class PlayerState : MonoBehaviour {
     public float border;
 	private bool activePuffer = false;
 
+    private GameObject shieldEffect;
+    public GameObject shieldEffectPrefab;
+
     private GameManager gm;
 
     // Use this for initialization
@@ -64,6 +67,7 @@ public class PlayerState : MonoBehaviour {
                 invulnerable = false;  
                 isDead = false;
                 invincibility = 10.0f;
+                Destroy(shieldEffect);
                 for (int i = 0; i < gm.GetPlayerList().Count; i++)
                     Physics.IgnoreCollision(GetComponent<Collider>(), gm.GetPlayerList()[i].GetComponent<Collider>(), false);
             }
@@ -101,6 +105,9 @@ public class PlayerState : MonoBehaviour {
         deadPlane.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity;
         gm.clearAllItemUI();
         StartCoroutine(respawn());
+
+        shieldEffect = Instantiate(shieldEffectPrefab, this.transform.position, this.transform.rotation) as GameObject;
+        shieldEffect.transform.parent = this.transform;
 
         for (int i = 0; i < gm.GetPlayerList().Count; i++)
         {

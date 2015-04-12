@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class CameraShakeScript : MonoBehaviour
 {
@@ -7,7 +7,7 @@ public class CameraShakeScript : MonoBehaviour
     public float sizeBuffer = 1f;
     public float portalBuffer = 3f;
     public float zScalar = -1.0f;
-    private GameObject[] players;
+    private List<GameObject> players;
     private Camera cam;
     private Resolution resolution;
     private Transform holder; //move the holder for normal movement, not the camera
@@ -29,7 +29,7 @@ public class CameraShakeScript : MonoBehaviour
     private float screenShakeIntensity = 0;
     void Awake()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        
         cam = GetComponent<Camera>();
         resolution = Screen.currentResolution; // may need to do checking to check if resolution has been changed
         holder = this.transform.parent;
@@ -42,6 +42,8 @@ public class CameraShakeScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(players == null)
+            players = GameObject.Find("GameManager").GetComponent<GameManager>().GetPlayerList();
         float minx = holder.position.x;
         float maxx = holder.position.x;
         float miny = holder.position.y;
