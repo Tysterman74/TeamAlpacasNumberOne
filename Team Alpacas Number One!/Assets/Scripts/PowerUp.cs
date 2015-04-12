@@ -27,7 +27,6 @@ public class PowerUp : MonoBehaviour {
     //Function to be overriden when creating own script
     public virtual void Update()
     {
-        print("hi");
     }
 
     //Function to be overriden when creating your own script

@@ -18,21 +18,12 @@ public class LineCollision : MonoBehaviour {
 
         //get list of enemy players
         int playerNumber = 1;
-        GameObject other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
-        while(other)
+        GameObject[] other = GameObject.FindGameObjectsWithTag("Player");
+        foreach( GameObject player in other)
         {
-            if (other != this.gameObject)
+            if (player != this.gameObject)
             {
-                enemyTrails.Add(other.GetComponent<LineCollision>());
-            }
-            playerNumber++;
-            try
-            {
-                other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
-            }
-            catch
-            {
-                break;
+                enemyTrails.Add(player.GetComponent<LineCollision>());
             }
         }
 	}
