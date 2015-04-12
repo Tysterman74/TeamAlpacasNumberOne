@@ -24,6 +24,7 @@ public class PlayerState : MonoBehaviour {
     private float width;
     private float height;
     public float border;
+	private bool activePuffer = false;
 
     private GameManager gm;
 
@@ -72,7 +73,19 @@ public class PlayerState : MonoBehaviour {
 		this.invulnerable = invulnerable;
 	}
 
-    public void loseLife()
+	public void changeActivePuffer(){
+		if (activePuffer) {
+			activePuffer = false;
+		} else {
+			activePuffer = true;
+		}
+	}
+
+	public bool getActivePuffer(){
+		return activePuffer;
+	}
+	
+	public void loseLife()
     {
         GameObject deadPlane;
         deadPlane = Instantiate(deadPlanePrefab, this.transform.position, this.transform.rotation) as GameObject;
