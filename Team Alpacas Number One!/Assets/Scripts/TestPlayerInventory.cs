@@ -31,5 +31,7 @@ public class TestPlayerInventory : MonoBehaviour {
     public void activatePower(GameObject player)
     {
         item.Activate(player);
+		item = null;
+		hasItem = false;
     }
 }
