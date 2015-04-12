@@ -32,9 +32,9 @@ public class SeahorsePowerup : PowerUp
     public override void Activate(GameObject player)
     {
         GameObject seahorse;
-        seahorse = Instantiate(seahorseBulletPrefab, this.transform.position, this.transform.rotation) as GameObject;
+        seahorse = Instantiate(seahorseBulletPrefab, player.transform.position, player.transform.rotation) as GameObject;
         Destroy(seahorse, 5);
-        seahorse.GetComponent<Rigidbody>().velocity = speedMultiplier * this.GetComponent<Rigidbody>().velocity;
+        seahorse.GetComponent<Rigidbody>().velocity = speedMultiplier * player.GetComponent<Rigidbody>().velocity;
         Destroy(this.gameObject);
     }
 }

@@ -83,20 +83,20 @@ public class LineCollision : MonoBehaviour {
             {
                 if (trail[i].intersects(otherLine))
                 {
+                    Debug.Log("hi");
                     hit = true;
                     int firstIndex = i - 10;
                     if (firstIndex < 0)
                         firstIndex = 0;
-                    int lastIndex = firstIndex + 20;
-                    if (lastIndex >= trail.Count)
-                        lastIndex = trail.Count - 1;
-                    for (int j = firstIndex; j < lastIndex - firstIndex; j++)
-                    {
+                    int count = 80;
+                    if (count + firstIndex >= trail.Count)
+                        count = (trail.Count - firstIndex) - 1;
+                    for (int j = firstIndex; j < firstIndex + count; j++)
                         trail[j].destroy();
-                        trail.RemoveAt(j);
-                    }
-
+                    trail.RemoveRange(firstIndex, count);
+                    break;
                 }
+                
             }
         }
     }
