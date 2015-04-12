@@ -139,16 +139,12 @@ public class PlayerState : MonoBehaviour {
 
         yield return new WaitForSeconds(5.0f);
         Vector3 spawnPoint = new Vector3(Random.Range((border - width / 3), (width / 3 - border)), Random.Range((border - height / 3), (height / 3 - border)), 0.0f);
-        Vector3 offSet = new Vector3(100.0f, 100.0f, 0.0f);
-        if (!(Physics.CheckSphere(spawnPoint, spawnDistance)))
+        while ((Physics.CheckSphere(spawnPoint, spawnDistance)))
         {
-            this.transform.position = spawnPoint;
+            spawnPoint = new Vector3(Random.Range((border - width / 3), (width / 3 - border)), Random.Range((border - height / 3), (height / 3 - border)), 0.0f);
         }
-        else
-        {
-            //spawn in an offset
-            this.transform.position = spawnPoint + offSet;
-        }
+        
+        this.transform.position = spawnPoint;
     }
 
 	public void setUIItem(PowerUp powerUp){
