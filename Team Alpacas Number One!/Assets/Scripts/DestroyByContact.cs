@@ -12,10 +12,14 @@ public class DestroyByContact : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
-        
-        if (col.rigidbody.tag.Contains("Player"))
+
+        if (col.rigidbody.tag.Contains("Player") /*&& !playerstate.isDead*/)
         {
             playerstate.loseLife();
         }
+        /*else if (col.rigidbody.tag.Contains("Player") && playerstate.isDead)
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
+        }*/
     }
 }
