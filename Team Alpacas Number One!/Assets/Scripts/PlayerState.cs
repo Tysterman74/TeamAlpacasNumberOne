@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public class PlayerState : MonoBehaviour {
     public int numLives;
@@ -14,14 +15,21 @@ public class PlayerState : MonoBehaviour {
     public float invincibility = 10.0f;
     public GameObject respawnPoint;
     public GameObject deathPoint;
+    public float spawnDistance;
     Collider collid;
     SpriteRenderer spriRender;
     Vector3 respawnPos;
     Vector3 deathPos;
     bool isDead = false;
+    private float width;
+    private float height;
+    public float border;
 
     // Use this for initialization
-	void Start () {
+    void Start()
+    {
+        height = 2.0f * Camera.main.orthographicSize;
+        width = height * Camera.main.aspect;
         spriRender = GetComponent<SpriteRenderer>();
         collid = GetComponent<Collider>();
         deathPos = deathPoint.transform.position;
@@ -84,7 +92,17 @@ public class PlayerState : MonoBehaviour {
     {
         this.transform.position = deathPos;
         yield return new WaitForSeconds(5.0f);
-        //spriRender.enabled = true;
-        this.transform.position = respawnPos;
+        Vector3 spawnPoint = new Vector3(Random.Range((border - width / 2), (width / 2 - border)), Random.Range((border - height / 2), (height / 2 - border)), 0.0f);
+        Vector3 offSet = new Vector3(100.0f, 100.0f, 0.0f);
+        /**/
+        if (!(Physics.CheckSphere(spawnPoint, spawnDistance)))
+        {
+            this.transform.position = spawnPoint;
+        }
+        else
+        { 
+            //spawn in an offset
+            this.transform.position = spawnPoint + offSet;
+        }
     }
 }
