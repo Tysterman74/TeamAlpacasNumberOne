@@ -17,9 +17,5 @@ public class DestroyByContact : MonoBehaviour {
         {
             playerstate.loseLife();
         }
-        /*else if (col.rigidbody.tag.Contains("Player") && playerstate.isDead)
-        {
-            Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
-        }*/
     }
 }
