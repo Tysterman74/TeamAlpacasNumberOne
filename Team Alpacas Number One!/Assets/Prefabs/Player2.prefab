@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numLives: 5
   deadPlanePrefab: {fileID: 187192, guid: 2d84b8e76e9e08640968d590ee5817b3, type: 2}
+  playerUI: {fileID: 155416, guid: 1299610b647a8db488545db68e7843e8, type: 2}
+  Heart: {fileID: 180398, guid: aeadbb95f62257243b265ed3f92040da, type: 2}
 --- !u!114 &11459600
 MonoBehaviour:
   m_ObjectHideFlags: 1

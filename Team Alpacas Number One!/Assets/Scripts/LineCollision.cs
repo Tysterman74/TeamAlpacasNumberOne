@@ -72,6 +72,35 @@ public class LineCollision : MonoBehaviour {
         return false;
     }
 
+    public void destroyIntersection(Vector2 start, Vector2 end)
+    {
+        line otherLine = new line(start, end);
+        bool hit = true;
+        while (hit)
+        {
+            hit = false;
+            for (int i = 0; i < trail.Count; i++)
+            {
+                if (trail[i].intersects(otherLine))
+                {
+                    Debug.Log("hi");
+                    hit = true;
+                    int firstIndex = i - 10;
+                    if (firstIndex < 0)
+                        firstIndex = 0;
+                    int count = 80;
+                    if (count + firstIndex >= trail.Count)
+                        count = (trail.Count - firstIndex) - 1;
+                    for (int j = firstIndex; j < firstIndex + count; j++)
+                        trail[j].destroy();
+                    trail.RemoveRange(firstIndex, count);
+                    break;
+                }
+                
+            }
+        }
+    }
+
     public void portalJump()
     {
         lastPosition = transform.position;
@@ -86,26 +115,17 @@ public class LineCollision : MonoBehaviour {
         trail = new List<lineObject>();
         currentLength = 0;
     }
-
-    public class lineObject
+    public class line
     {
         public Vector2 start;
         public Vector2 end;
-        private GameObject graphic;
-        public lineObject(Vector2 start, Vector2 end, GameObject trailGraphicPrefab)
+        public line(Vector2 start, Vector2 end)
         {
             this.start = start;
             this.end = end;
-            Vector2 midpoint = (start + end) / 2;
-            Vector2 translation = getTranslation();
-            this.graphic = trailGraphicPrefab;
-            graphic.transform.Translate(midpoint, Space.World);
-            graphic.transform.Rotate(0, 0, 90 - (180 * Mathf.Atan2(translation.x, translation.y) / Mathf.PI), Space.World);
-            graphic.transform.localScale = new Vector3(translation.magnitude * 2, 1, 1);
-
         }
 
-        public bool intersects(lineObject other)
+        public bool intersects(line other)
         {
             return (checkDir(this.start, this.end, other.start) != checkDir(this.start, this.end, other.end))
         && (checkDir(other.start, other.end, this.start) != checkDir(other.start, other.end, this.end));
@@ -119,6 +139,20 @@ public class LineCollision : MonoBehaviour {
         private bool checkDir(Vector2 pt1, Vector2 pt2, Vector2 pt3)
         {
             return ((pt2.x - pt1.x) * (pt3.y - pt1.y)) > ((pt3.x - pt1.x) * (pt2.y - pt1.y));
+        }
+    }
+    public class lineObject : line
+    {
+        private GameObject graphic;
+        public lineObject(Vector2 start, Vector2 end, GameObject trailGraphicPrefab) : base(start, end)
+        {
+            Vector2 midpoint = (start + end) / 2;
+            Vector2 translation = getTranslation();
+            this.graphic = trailGraphicPrefab;
+            graphic.transform.Translate(midpoint, Space.World);
+            graphic.transform.Rotate(0, 0, 90 - (180 * Mathf.Atan2(translation.x, translation.y) / Mathf.PI), Space.World);
+            graphic.transform.localScale = new Vector3(translation.magnitude * 2, 1, 1);
+
         }
 
         public void destroy()
