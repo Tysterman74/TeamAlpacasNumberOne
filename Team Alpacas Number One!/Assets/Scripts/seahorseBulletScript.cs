@@ -10,20 +10,10 @@ public class seahorseBulletScript : MonoBehaviour {
         lastPosition = transform.position;
         enemyTrails = new List<LineCollision>();
 
-        int playerNumber = 1;
-        GameObject other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
-        while (other)
+        List<GameObject> enemyObjects = GameObject.Find("GameManager").GetComponent<GameManager>().GetPlayerList();
+        foreach (GameObject other in enemyObjects)
         {
             enemyTrails.Add(other.GetComponent<LineCollision>());
-            playerNumber++;
-            try
-            {
-                other = GameObject.FindGameObjectWithTag("Player" + playerNumber);
-            }
-            catch
-            {
-                break;
-            }
         }
 	}
 	
