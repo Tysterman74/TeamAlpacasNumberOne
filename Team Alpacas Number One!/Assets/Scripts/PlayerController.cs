@@ -60,6 +60,11 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void AddSpeed(float increment)
+    {
+        speed += increment;
+    }
+
     public void SetBonusSpeed(float bonus) 
     {
         bonusSpeed = bonus;
