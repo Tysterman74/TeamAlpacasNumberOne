@@ -48,16 +48,17 @@ public class CameraShakeScript : MonoBehaviour
         float maxx = holder.position.x;
         float miny = holder.position.y;
         float maxy = holder.position.y;
-
+        int numPlayers = 0;
         foreach (GameObject player in players)
         {
             Vector3 playerPos = player.transform.position;
-            if (minx < leftPortal.position.x || maxx > rightPortal.position.x || miny < bottomPortal.position.y || maxy > topPortal.position.y)
+            if (player.GetComponent<PlayerState>().isDead || minx < leftPortal.position.x || maxx > rightPortal.position.x || miny < bottomPortal.position.y || maxy > topPortal.position.y)
             {
                 // do nothing; the plane is outside the portals
             }
             else
             {
+                numPlayers++;
                 if (minx > playerPos.x)
                     minx = playerPos.x;
                 if (maxx < playerPos.x)
@@ -67,10 +68,15 @@ public class CameraShakeScript : MonoBehaviour
                 if (maxy < playerPos.y)
                     maxy = playerPos.y;
             }
-            
-            
         }
-
+        if (numPlayers == 0)
+        {
+            Debug.Log("all players dead");
+            minx = leftPortal.position.x + portalBuffer;
+            maxx = rightPortal.position.x - portalBuffer;
+            miny = bottomPortal.position.y + portalBuffer;
+            maxy = topPortal.position.y - portalBuffer;
+        }
         minx -= sizeBuffer;
         maxx += sizeBuffer;
         miny -= sizeBuffer;
