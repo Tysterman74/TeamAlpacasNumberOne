@@ -43,7 +43,7 @@ public class PlayerState : MonoBehaviour {
         shake = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShakeScript>();
         trail = GetComponent<LineCollision>();
 		GameObject playerFrame = GameObject.Find ("CanvasPrefab/PlayerFrame");
-		GameObject ui = Instantiate (playerUI) as GameObject;
+		ui = Instantiate (playerUI) as GameObject;
 		ui.transform.parent=playerFrame.transform;
 		heartContainer = ui.transform.FindChild ("HeartContainer").gameObject;
 		hearts = new GameObject[numLives];
@@ -133,6 +133,17 @@ public class PlayerState : MonoBehaviour {
     }
 
 	public void setUIItem(PowerUp powerUp){
-		ui.transform.FindChild ("ItemImage").GetComponent<Image> ().sprite = powerUp.gameObject.GetComponent<SpriteRenderer> ().sprite;
+		print (ui.transform);
+		Image UIItem = ui.transform.FindChild ("ItemImage").GetComponent<Image> ();
+		UIItem.sprite = powerUp.gameObject.GetComponent<SpriteRenderer> ().sprite;
+		UIItem.color = Color.white;
+	}
+
+	public void removeUIItem(){
+		Image UIItem = ui.transform.FindChild ("ItemImage").GetComponent<Image> ();
+		UIItem.sprite = null;
+		Color color = UIItem.color;
+		color.a = 0;
+		UIItem.color = color;
 	}
 }
