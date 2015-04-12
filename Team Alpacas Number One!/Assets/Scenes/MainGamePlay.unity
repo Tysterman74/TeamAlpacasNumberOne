@@ -228,6 +228,10 @@ Prefab:
       propertyPath: itemUse
       value: 115
       objectReference: {fileID: 0}
+    - target: {fileID: 11408452, guid: 2b0acbbd5aa3b1d46b49f6093a10bbe2, type: 2}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b0acbbd5aa3b1d46b49f6093a10bbe2, type: 2}
   m_IsPrefabParent: 0
@@ -282,6 +286,14 @@ Prefab:
     - target: {fileID: 11408452, guid: 2b0acbbd5aa3b1d46b49f6093a10bbe2, type: 2}
       propertyPath: itemUse
       value: 107
+      objectReference: {fileID: 0}
+    - target: {fileID: 161368, guid: 2b0acbbd5aa3b1d46b49f6093a10bbe2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11408452, guid: 2b0acbbd5aa3b1d46b49f6093a10bbe2, type: 2}
+      propertyPath: speed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2b0acbbd5aa3b1d46b49f6093a10bbe2, type: 2}
@@ -386,6 +398,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ba8221e9a7f9349b1b5ec671a08ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnIncrement: 0
+  speedIncrement: 0
 --- !u!1 &2122217150
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +430,7 @@ MonoBehaviour:
   itemlist:
   - {fileID: 177710, guid: ee3cfda61c49afc478c15635d9acc8f0, type: 2}
   - {fileID: 155494, guid: f07f15d0f22581c4f96c020beed4648b, type: 2}
+  - {fileID: 138284, guid: b637c0a0017b1664e99f39c080522c20, type: 2}
   max: 5
   time: 7
   itemDistance: 3

@@ -3,6 +3,9 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
+    public float turnIncrement;
+    public float speedIncrement;
+
     private GameObject player1;
     private GameObject player2;
 
@@ -28,9 +31,9 @@ public class GameManager : MonoBehaviour {
     void increasePlayerSpeed()
     {
         print("INCREASE MOFO");
-        player1.GetComponent<PlayerController>().AddSpeed(0.75f);
-        player2.GetComponent<PlayerController>().AddSpeed(0.75f);
-        player1.GetComponent<PlayerController>().AddTurn(0.35f);
-        player2.GetComponent<PlayerController>().AddTurn(0.35f);
+        player1.GetComponent<PlayerController>().AddSpeed(speedIncrement);
+        player2.GetComponent<PlayerController>().AddSpeed(speedIncrement);
+        player1.GetComponent<PlayerController>().AddTurn(turnIncrement);
+        player2.GetComponent<PlayerController>().AddTurn(turnIncrement);
     }
 }
