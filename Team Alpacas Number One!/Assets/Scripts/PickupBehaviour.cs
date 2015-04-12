@@ -63,6 +63,7 @@ public class PickupBehaviour : MonoBehaviour {
 				other.SendMessage("SetItem", powerUp);
 				Trigger();
 			}
+            GameObject.Find("GameManager").GetComponent<GameManager>().RemoveItem(this.gameObject);
         }
 
         
@@ -74,8 +75,12 @@ public class PickupBehaviour : MonoBehaviour {
         sound.Play();
         if (!other.tag.Contains("Player"))
             return;
-        currentPositions[other.gameObject.GetInstanceID()].destroy();
-        currentPositions.Remove(other.gameObject.GetInstanceID());
+        print(other);
+        if (currentPositions.ContainsKey(other.gameObject.GetInstanceID()))
+        {
+            currentPositions[other.gameObject.GetInstanceID()].destroy();
+            currentPositions.Remove(other.gameObject.GetInstanceID());
+        }
     }
 
     public void EraseAllUI(GameObject p1, GameObject p2)

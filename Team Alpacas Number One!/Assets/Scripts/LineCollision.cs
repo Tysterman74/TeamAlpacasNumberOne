@@ -10,6 +10,8 @@ public class LineCollision : MonoBehaviour {
     private List<LineCollision> enemyTrails;
     private PlayerState state; //reference to our playerstatescript
     public Color trailColor;
+
+    private List<GameObject> playerList;
 	// Use this for initialization
 	void Start () {
         trail = new List<lineObject>();
@@ -18,8 +20,9 @@ public class LineCollision : MonoBehaviour {
         state = GetComponent<PlayerState>();
 
         //get list of enemy players
-        GameObject[] other = GameObject.FindGameObjectsWithTag("Player");
-        foreach( GameObject player in other)
+        //GameObject[] other = GameObject.FindGameObjectsWithTag("Player");
+        playerList = GameObject.Find("GameManager").GetComponent<GameManager>().GetPlayerList();
+        foreach( GameObject player in playerList)
         {
             if (player != this.gameObject)
             {

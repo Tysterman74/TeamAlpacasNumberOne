@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 public class WhaleShockwaveScript : MonoBehaviour {
-	private Vector2 position;
+	private Vector3 position;
 	public float expandConstant;
 	public float maxSize;
 
@@ -23,6 +23,6 @@ public class WhaleShockwaveScript : MonoBehaviour {
 	}
 
 	public void setPlayer(GameObject player){
-		Physics.IgnoreCollision (player.GetComponent<BoxCollider>(), gameObject.GetComponent<SphereCollider>());
+		Physics.IgnoreCollision (player.GetComponent<Collider>(), gameObject.GetComponent<SphereCollider>());
 	}
 }
