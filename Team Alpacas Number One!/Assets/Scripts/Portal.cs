@@ -14,6 +14,8 @@ public class Portal : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         GetComponent<BoxCollider>().size = size;
+
+        
         Camera cam = Camera.main;
         height = 2.0f * cam.orthographicSize;
         width = height * cam.aspect;
