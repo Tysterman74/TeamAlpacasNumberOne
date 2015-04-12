@@ -13,7 +13,7 @@ public class DestroyByContact : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         
-        if (col.rigidbody.tag == "Player")
+        if (col.rigidbody.tag.Contains("Player"))
         {
             playerstate.loseLife();
         }

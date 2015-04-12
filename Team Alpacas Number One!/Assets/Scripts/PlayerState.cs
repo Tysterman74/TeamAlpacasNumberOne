@@ -25,9 +25,13 @@ public class PlayerState : MonoBehaviour {
     private float height;
     public float border;
 
+    private GameManager gm;
+
     // Use this for initialization
     void Start()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         height = 2.0f * Camera.main.orthographicSize;
         width = height * Camera.main.aspect;
         spriRender = GetComponent<SpriteRenderer>();
@@ -73,6 +77,7 @@ public class PlayerState : MonoBehaviour {
         if (!isDead)
         {
             isDead = true;
+            gm.clearAllItemUI();
             StartCoroutine(respawn());
         }
         collid.enabled = false;
@@ -83,17 +88,19 @@ public class PlayerState : MonoBehaviour {
         {
             Debug.Log("Dead");
         }
+
         GameObject deadPlane;
         deadPlane = Instantiate(deadPlanePrefab, this.transform.position, this.transform.rotation) as GameObject;
         Destroy(deadPlane, 5);
         deadPlane.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity;
-        this.transform.position = new Vector3(0, 0, 0);
 		Destroy (hearts [numLives - 1]);
     }
 
     IEnumerator respawn()
     {
+        //print("fucking");
         this.transform.position = deathPos;
+
         yield return new WaitForSeconds(5.0f);
         Vector3 spawnPoint = new Vector3(Random.Range((border - width / 2), (width / 2 - border)), Random.Range((border - height / 2), (height / 2 - border)), 0.0f);
         Vector3 offSet = new Vector3(100.0f, 100.0f, 0.0f);
