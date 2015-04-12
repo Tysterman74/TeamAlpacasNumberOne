@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
     private GameObject player1;
     private GameObject player2;
 
-    private float incrementTimer = 10.0f;
+    private float incrementTimer = 3.0f;
     private float currentTimer = 0.0f;
 
 	// Use this for initialization
@@ -18,6 +18,17 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         currentTimer += Time.deltaTime;
-
+        if (currentTimer >= incrementTimer)
+        {
+            currentTimer = 0.0f;
+            increasePlayerSpeed();
+        }
 	}
+
+    void increasePlayerSpeed()
+    {
+        print("INCREASE MOFO");
+        player1.GetComponent<PlayerController>().AddSpeed(0.75f);
+        player2.GetComponent<PlayerController>().AddSpeed(0.75f);
+    }
 }
