@@ -71,7 +71,6 @@ public class CameraShakeScript : MonoBehaviour
         }
         if (numPlayers == 0)
         {
-            Debug.Log("all players dead");
             minx = leftPortal.position.x + portalBuffer;
             maxx = rightPortal.position.x - portalBuffer;
             miny = bottomPortal.position.y + portalBuffer;
@@ -101,7 +100,7 @@ public class CameraShakeScript : MonoBehaviour
         
         if (xrange / resolution.width > yrange / resolution.height)
         {
-            z = xrange;
+            z = resolution.height * xrange / resolution.width;
             if (midy + Mathf.Abs(zScalar) * Mathf.Abs(z) > topPortal.position.y)
             {
                 midy = topPortal.position.y - (Mathf.Abs(zScalar) * Mathf.Abs(z));
@@ -113,24 +112,23 @@ public class CameraShakeScript : MonoBehaviour
 
                 midy = bottomPortal.position.y + (Mathf.Abs(zScalar) * Mathf.Abs(z));
                 Debug.Log("move2");
-
             }
         }
         else
         {
-            yrange = resolution.width * yrange / resolution.height;
+            
             z = yrange;
-            if (midx + Mathf.Abs(zScalar) * Mathf.Abs(z) * (resolution.width / resolution.height) > rightPortal.position.x) 
+            if (midx + (Mathf.Abs(zScalar) * Mathf.Abs(z) * cam.aspect) > rightPortal.position.x) 
 
             {
-                midx = rightPortal.position.x - (Mathf.Abs(zScalar) * Mathf.Abs(z) * (resolution.width / resolution.height));
+                midx = rightPortal.position.x - (Mathf.Abs(zScalar) * Mathf.Abs(z) * cam.aspect);
                 Debug.Log("move3");
 
             }
-            else if (midx - Mathf.Abs(zScalar) * Mathf.Abs(z) * (resolution.width / resolution.height) < leftPortal.position.x)
+            else if (midx - (Mathf.Abs(zScalar) * Mathf.Abs(z) * cam.aspect) < leftPortal.position.x)
             {
 
-                midx = leftPortal.position.x + (Mathf.Abs(zScalar) * Mathf.Abs(z) * (resolution.width / resolution.height));
+                midx = leftPortal.position.x + (Mathf.Abs(zScalar) * Mathf.Abs(z) * cam.aspect);
                 Debug.Log("move4");
 
             }
