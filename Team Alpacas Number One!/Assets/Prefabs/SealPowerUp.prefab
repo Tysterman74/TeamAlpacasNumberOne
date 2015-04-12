@@ -139,7 +139,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.17000008
+  m_Radius: .860000014
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &21270422
 SpriteRenderer:

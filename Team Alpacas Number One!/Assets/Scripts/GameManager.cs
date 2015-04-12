@@ -60,6 +60,11 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void RemoveItem(GameObject g)
+    {
+        itemsOnField.Remove(g);
+    }
+
     public void AddItem(GameObject g)
     {
         itemsOnField.Add(g);
