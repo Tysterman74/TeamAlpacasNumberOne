@@ -21,7 +21,7 @@ public class PlayerState : MonoBehaviour {
     SpriteRenderer spriRender;
     Vector3 respawnPos;
     Vector3 deathPos;
-    bool isDead = false;
+    public bool isDead = false;
     private float width;
     private float height;
     public float border;
@@ -61,9 +61,11 @@ public class PlayerState : MonoBehaviour {
         {
             if (invincibility <= 0.0f)
             {
+                invulnerable = false;  
                 isDead = false;
                 invincibility = 10.0f;
-                collid.enabled = true;
+                for (int i = 0; i < gm.GetPlayerList().Count; i++)
+                    Physics.IgnoreCollision(GetComponent<Collider>(), gm.GetPlayerList()[i].GetComponent<Collider>(), false);
             }
             invincibility -= Time.deltaTime;
         }
@@ -88,37 +90,49 @@ public class PlayerState : MonoBehaviour {
 	
 	public void loseLife()
     {
+        if (isDead || invulnerable)
+            return;
+
+        invulnerable = true;
+        isDead = true;
         GameObject deadPlane;
         deadPlane = Instantiate(deadPlanePrefab, this.transform.position, this.transform.rotation) as GameObject;
         Destroy(deadPlane, 5);
         deadPlane.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity;
-        if (!isDead)
+        gm.clearAllItemUI();
+        StartCoroutine(respawn());
+
+        for (int i = 0; i < gm.GetPlayerList().Count; i++)
         {
-            isDead = true;
-            gm.clearAllItemUI();
-            StartCoroutine(respawn());
+            GameObject g = gm.GetPlayerList()[i];
+            if (this.gameObject != g)
+            {
+                Physics.IgnoreCollision(GetComponent<Collider>(), g.GetComponent<Collider>());
+            }
         }
-        collid.enabled = false;
-        numLives -= 1;
         shake.screenSlam(0.2f,0.5f);
         trail.clearTrail();
+
         if (numLives < 0)
         {
             Debug.Log("Dead");
+            //tell player he lost the match, but in a cutsy way
+        }
+        else
+        {
+            numLives -= 1;
+            Destroy(hearts[numLives - 1]);
         }
 
-		Destroy (hearts [numLives - 1]);
     }
 
     IEnumerator respawn()
     {
-        //print("fucking");
         this.transform.position = deathPos;
 
         yield return new WaitForSeconds(5.0f);
-        Vector3 spawnPoint = new Vector3(Random.Range((border - width / 2), (width / 2 - border)), Random.Range((border - height / 2), (height / 2 - border)), 0.0f);
+        Vector3 spawnPoint = new Vector3(Random.Range((border - width / 3), (width / 3 - border)), Random.Range((border - height / 3), (height / 3 - border)), 0.0f);
         Vector3 offSet = new Vector3(100.0f, 100.0f, 0.0f);
-        /**/
         if (!(Physics.CheckSphere(spawnPoint, spawnDistance)))
         {
             this.transform.position = spawnPoint;
