@@ -33,11 +33,17 @@ public class Portal : MonoBehaviour {
             //Teleport player to other side.
             //Assume width for now,
             Vector3 playerPos = col.transform.position;
+            float distance = (transform.position - receivingPortal.transform.position).magnitude;
+            /*Vector3 direction = transform.position - playerPos;
+            print("Direction: " + direction + " to " + name);
+            float distance = 0;
+
             if (leftRight)
             {
+
                 if (col.GetComponent<Rigidbody>().velocity.x > 0)
                 {
-                    playerPos.x -= (width - 1);
+                    playerPos.x -= (width - 0.25f);
                 }
                 else
                 {
@@ -54,7 +60,40 @@ public class Portal : MonoBehaviour {
                 {
                     playerPos.y += (height);
                 }
+            }*/
+            if (leftRight)
+            {
+                //playerPos.x = receivingPortal.transform.position.x;
+                if (name == "RightPortal")
+                {
+                    playerPos.x = receivingPortal.transform.position.x + 1.5f;
+                }
+                else
+                {
+                    playerPos.x = receivingPortal.transform.position.x - 1.5f;
+                }
             }
+            else
+            {
+                //playerPos.y = receivingPortal.transform.position.y;
+                if (name == "TopPortal")
+                {
+                    playerPos.y = receivingPortal.transform.position.y + 1.5f;
+                }
+                else
+                {
+                    playerPos.y = receivingPortal.transform.position.y - 1.5f;
+                }
+            }
+            //if (leftRight)
+            //{
+            //
+            //    playerPos.x -= distance;
+            //}
+            //else
+            //{
+            //
+            //}
             col.transform.position = playerPos;
         }
         col.gameObject.GetComponent<LineCollision>().portalJump();
