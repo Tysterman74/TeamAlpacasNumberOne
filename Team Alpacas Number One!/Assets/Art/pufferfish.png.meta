@@ -1,9 +1,13 @@
 fileFormatVersion: 2
 guid: 269c7433f3c092e489ac6ab447801e4d
-timeCreated: 1428801545
+timeCreated: 1428823410
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: pufferfish_0
+    21300002: pufferfish_1
+    21300004: pufferfish_2
+    21300006: pufferfish_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +34,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +52,47 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: pufferfish_0
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 467
+        width: 222
+        height: 251
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pufferfish_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 467
+        width: 317
+        height: 277
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pufferfish_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 185
+        width: 337
+        height: 277
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: pufferfish_3
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 165
+        width: 357
+        height: 322
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

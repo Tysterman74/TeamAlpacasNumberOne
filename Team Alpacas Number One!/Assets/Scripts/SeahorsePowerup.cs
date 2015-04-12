@@ -13,6 +13,7 @@ public class SeahorsePowerup : PowerUp
         seahorse = Instantiate(seahorseBulletPrefab, player.transform.position, player.transform.rotation) as GameObject;
         Destroy(seahorse, duration);
         seahorse.GetComponent<Rigidbody>().velocity = speedMultiplier * player.GetComponent<Rigidbody>().velocity;
+        Physics.IgnoreCollision(seahorse.GetComponent<Collider>(), player.GetComponent<Collider>()); //don't kill yourself when you shoot
         Destroy(this.gameObject);
     }
 }
