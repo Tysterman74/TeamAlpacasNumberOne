@@ -15,7 +15,7 @@ GameObject:
   - 82: {fileID: 8263224}
   m_Layer: 0
   m_Name: ShellPickup
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140594}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.181774139, y: -.747156262, z: 0}
-  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
+  m_LocalPosition: {x: 1.22710001, y: 2.4440999, z: 0}
+  m_LocalScale: {x: .477805585, y: .477805614, z: .796342671}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -140,8 +140,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.67999995
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 2.91000009
+  m_Center: {x: 0, y: -.159999996, z: 0}
 --- !u!212 &21230404
 SpriteRenderer:
   m_ObjectHideFlags: 1

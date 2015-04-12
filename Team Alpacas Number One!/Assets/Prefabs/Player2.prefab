@@ -25,7 +25,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468338}
-  - 65: {fileID: 6523826}
   - 114: {fileID: 11408452}
   - 54: {fileID: 5414232}
   - 212: {fileID: 21209544}
@@ -35,6 +34,7 @@ GameObject:
   - 199: {fileID: 19956390}
   - 198: {fileID: 19823944}
   - 114: {fileID: 11409088}
+  - 135: {fileID: 13517846}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161368}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalPosition: {x: -6.82800007, y: 5.61999989, z: 0}
   m_LocalScale: {x: .180539608, y: .180539474, z: .180539474}
   m_Children:
   - {fileID: 407946}
@@ -82,18 +82,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!65 &6523826
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161368}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: -7.53000021, y: 6.15999985, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9564800
 Animator:
   serializedVersion: 3
@@ -124,9 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   rotaSpeed: 2
-  turnLeft: 97
-  turnRight: 100
-  itemUse: 115
+  turnLeft: 106
+  turnRight: 108
+  itemUse: 107
 --- !u!114 &11409088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   trailGraphic: {fileID: 135270, guid: 9fd36262af3952645aca8f0e911c7e04, type: 2}
-  trailColor: {r: 1, g: .639705896, b: .639705896, a: .0588235296}
+  trailColor: {r: .380392194, g: .639215708, b: .980392218, a: .0588235296}
 --- !u!114 &11437536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -169,7 +157,7 @@ MonoBehaviour:
   Heart: {fileID: 180398, guid: aeadbb95f62257243b265ed3f92040da, type: 2}
   invincibility: 10
   respawnPoint: {fileID: 176424, guid: 759ebb933a1d366469afe3b3bb61be49, type: 2}
-  deathPoint: {fileID: 0}
+  deathPoint: {fileID: 137612, guid: 9137248ec71b67c498479ffafd0a678c, type: 2}
   spawnDistance: 2.01999998
   isDead: 0
   border: 2
@@ -185,6 +173,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832cc96d7a07aab4db72c51f0217c590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &13517846
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161368}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.55999994
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &19823944
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -565,7 +565,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 16777215
+          rgba: 16425825
         key1:
           serializedVersion: 2
           rgba: 4290427578

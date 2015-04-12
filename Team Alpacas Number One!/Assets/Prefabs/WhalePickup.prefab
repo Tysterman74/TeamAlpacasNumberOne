@@ -15,7 +15,7 @@ GameObject:
   - 82: {fileID: 8292264}
   m_Layer: 0
   m_Name: WhalePickup
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,7 +168,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -.00999999978, y: .75999999}
+  m_AnchoredPosition: {x: -6.23665619, y: -.711995602}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
