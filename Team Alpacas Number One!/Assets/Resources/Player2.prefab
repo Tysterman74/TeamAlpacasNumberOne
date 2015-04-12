@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numLives: 5
   deadPlanePrefab: {fileID: 187192, guid: 2d84b8e76e9e08640968d590ee5817b3, type: 2}
-  playerUI: {fileID: 159418, guid: 1299610b647a8db488545db68e7843e8, type: 2}
+  playerUI: {fileID: 159418, guid: fceb212f3c00c6b438b5aa3d9374b95e, type: 2}
   Heart: {fileID: 180398, guid: aeadbb95f62257243b265ed3f92040da, type: 2}
   invincibility: 10
   respawnPoint: {fileID: 176424, guid: 759ebb933a1d366469afe3b3bb61be49, type: 2}
