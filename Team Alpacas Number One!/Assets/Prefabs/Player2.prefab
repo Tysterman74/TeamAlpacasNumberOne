@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   trailGraphic: {fileID: 135270, guid: 9fd36262af3952645aca8f0e911c7e04, type: 2}
+  trailColor: {r: 1, g: 0, b: 0, a: 0}
 --- !u!114 &11437536
 MonoBehaviour:
   m_ObjectHideFlags: 1
