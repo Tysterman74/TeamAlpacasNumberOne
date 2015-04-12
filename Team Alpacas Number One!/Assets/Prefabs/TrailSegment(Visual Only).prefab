@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 403932}
   - 212: {fileID: 21263980}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TrailSegment(Visual Only)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
