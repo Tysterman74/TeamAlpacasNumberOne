@@ -26,6 +26,7 @@ public class LineCollision : MonoBehaviour {
                 enemyTrails.Add(player.GetComponent<LineCollision>());
             }
         }
+        GetComponent<ParticleEmitter>().renderer.sortingLayerName = "Foreground";
 	}
 	
 	// Update is called once per frame
