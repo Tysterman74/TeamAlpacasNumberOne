@@ -59,6 +59,7 @@ public class PickupBehaviour : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
+        print("call");
         if (!other.tag.Contains("Player"))
             return;
         currentPositions[other.gameObject.GetInstanceID()].destroy();
