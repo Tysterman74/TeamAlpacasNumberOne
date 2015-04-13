@@ -31,16 +31,11 @@ public class BackgroundSwitching : MonoBehaviour {
     private GameObject rightPortal;
 	// Use this for initialization
 	void Start () {
-        leftPortal = GameObject.Find("LeftPortal");
-        rightPortal = GameObject.Find("RightPortal");
         resetCheckPoint = transform.FindChild("ResetCheckPoint").gameObject;
 
         originalPic1Pos = picture1.transform.position;
         //Use this for reseting.
         originalPic2Pos = picture2.transform.position;
-
-        arenaWidth = Vector2.Distance(new Vector2(leftPortal.transform.position.x, leftPortal.transform.position.y),
-            new Vector2(rightPortal.transform.position.x, rightPortal.transform.position.y));
 
         cam = Camera.main;
         camHeight = 2.0f * Camera.main.orthographicSize;
@@ -48,7 +43,6 @@ public class BackgroundSwitching : MonoBehaviour {
 
         //Testing the sprite width
         picWidth = picture1.GetComponent<SpriteRenderer>().bounds.size.x;
-        portalWidth = rightPortal.GetComponent<BoxCollider>().size.x / 2.0f;
 
         pic1Rend = picture1.GetComponent<SpriteRenderer>();
         pic2Rend = picture2.GetComponent<SpriteRenderer>();

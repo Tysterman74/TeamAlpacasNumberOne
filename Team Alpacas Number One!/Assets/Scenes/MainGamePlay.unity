@@ -429,7 +429,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!114 &1997014550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,7 +541,6 @@ MonoBehaviour:
   time: 7
   itemDistance: 4
   border: 4
-  maxPufferfishCount: 5
 --- !u!4 &2122217152
 Transform:
   m_ObjectHideFlags: 0
