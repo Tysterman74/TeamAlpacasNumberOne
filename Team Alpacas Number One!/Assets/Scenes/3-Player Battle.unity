@@ -354,6 +354,10 @@ Prefab:
       propertyPath: playerNames.Array.data[2]
       value: San-chan
       objectReference: {fileID: 0}
+    - target: {fileID: 11441828, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: numPlayers
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
   m_IsPrefabParent: 0

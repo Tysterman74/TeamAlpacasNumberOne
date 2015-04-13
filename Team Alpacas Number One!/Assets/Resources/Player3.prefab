@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   trailGraphic: {fileID: 135270, guid: 9fd36262af3952645aca8f0e911c7e04, type: 2}
-  trailColor: {r: 1, g: .983975649, b: .41911763, a: .0588235296}
+  trailColor: {r: .992156923, g: 1, b: .325490206, a: .0588235296}
 --- !u!114 &11445172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -578,7 +578,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 5722606
+          rgba: 5505021
         key1:
           serializedVersion: 2
           rgba: 4290427578

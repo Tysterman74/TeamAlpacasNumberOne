@@ -152,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   trailGraphic: {fileID: 135270, guid: 9fd36262af3952645aca8f0e911c7e04, type: 2}
-  trailColor: {r: .639705896, g: 1, b: .910547733, a: .0588235296}
+  trailColor: {r: .380392194, g: .639215708, b: .980392218, a: .0588235296}
 --- !u!114 &11437536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numLives: 5
   deadPlanePrefab: {fileID: 108668, guid: f0cc3de263ca88f40b294bc3847d0edd, type: 2}
-  playerUI: {fileID: 159418, guid: fceb212f3c00c6b438b5aa3d9374b95e, type: 2}
+  playerUI: {fileID: 159418, guid: 1299610b647a8db488545db68e7843e8, type: 2}
   Heart: {fileID: 180398, guid: aeadbb95f62257243b265ed3f92040da, type: 2}
   invincibility: 10
   respawnPoint: {fileID: 176424, guid: 759ebb933a1d366469afe3b3bb61be49, type: 2}
@@ -578,7 +578,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 16777215
+          rgba: 16425825
         key1:
           serializedVersion: 2
           rgba: 4290427578

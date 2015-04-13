@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour {
             playerList.Add(player4);
         }
 
-        names = GetComponent<NameGenerator>();
     }
 
 	// Use this for initialization
@@ -76,6 +75,7 @@ public class GameManager : MonoBehaviour {
         playerList.Add(player2);
         playerList.Add(player3);
         playerList.Add(player4);*/
+        names = GetComponent<NameGenerator>();
 
 		GameObject playerFrame = GameObject.Find ("CanvasPrefab/PlayerFrame");
 		playerFrame.GetComponent<UIScaleScript> ().setUI (numPlayers);
