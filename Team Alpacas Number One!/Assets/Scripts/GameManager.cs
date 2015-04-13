@@ -121,6 +121,18 @@ public class GameManager : MonoBehaviour {
 
             Destroy(g);
         }
+
+        if (playerList.Count == 0)
+        {
+            gameFinished = true;
+            //game over
+            winText.SetActive(true);
+            playerList.Clear();
+
+            StartCoroutine(exitToMenu());
+            Text winnerPlayer = winText.transform.FindChild("WinnerPlayer").GetComponent<Text>();
+            winnerPlayer.text = "NO ONE WINS";
+        }
     }
 
     IEnumerator exitToMenu()

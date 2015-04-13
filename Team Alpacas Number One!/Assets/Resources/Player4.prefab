@@ -161,9 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rotaSpeed: 2
-  turnLeft: 260
-  turnRight: 262
-  itemUse: 261
+  turnLeft: 102
+  turnRight: 104
+  itemUse: 103
 --- !u!114 &11490064
 MonoBehaviour:
   m_ObjectHideFlags: 1
