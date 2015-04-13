@@ -62,7 +62,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -4, z: 0}
+  m_LocalPosition: {x: -16, y: 0, z: 0}
   m_LocalScale: {x: .180539608, y: .180539474, z: .180539474}
   m_Children:
   - {fileID: 450486}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   trailGraphic: {fileID: 135270, guid: 9fd36262af3952645aca8f0e911c7e04, type: 2}
-  trailColor: {r: 1, g: .983975649, b: .41911763, a: .0588235296}
+  trailColor: {r: .886628032, g: .897058845, b: 0, a: .0588235296}
 --- !u!114 &11445172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -578,7 +578,7 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 5722606
+          rgba: 5505021
         key1:
           serializedVersion: 2
           rgba: 4290427578
@@ -1337,7 +1337,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1273825571
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1c7c45a22628c5e408b6784d069cd32a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad342110100d0fb42af226fa5b88c7ad, type: 3}
   m_Color: {r: .99066937, g: 1, b: .323529422, a: 1}
 --- !u!1001 &100100000
 Prefab:

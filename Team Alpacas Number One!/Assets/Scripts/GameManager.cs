@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        Debug.Log("awaken!");
         playerList = new List<GameObject>();
         itemsOnField = new List<GameObject>();
         player1 = Instantiate(Resources.Load("player1", typeof(GameObject))) as GameObject;
@@ -44,18 +43,17 @@ public class GameManager : MonoBehaviour {
         if(numPlayers >= 3)
         {
             player3 = Instantiate(Resources.Load("player3", typeof(GameObject))) as GameObject;
-            player3 = GameObject.Find("Player3");
+            //player3 = GameObject.Find("Player3");
             playerList.Add(player3);
         }
             
         if(numPlayers == 4)
         {
             player4 = Instantiate(Resources.Load("player4", typeof(GameObject))) as GameObject;
-            player4 = GameObject.Find("Player4");
+            //player4 = GameObject.Find("Player4");
             playerList.Add(player4);
         }
 
-        names = GetComponent<NameGenerator>();
     }
 
 	// Use this for initialization
@@ -76,6 +74,7 @@ public class GameManager : MonoBehaviour {
         playerList.Add(player2);
         playerList.Add(player3);
         playerList.Add(player4);*/
+        names = GetComponent<NameGenerator>();
 
 		GameObject playerFrame = GameObject.Find ("CanvasPrefab/PlayerFrame");
 		playerFrame.GetComponent<UIScaleScript> ().setUI (numPlayers);
@@ -118,8 +117,21 @@ public class GameManager : MonoBehaviour {
             StartCoroutine(exitToMenu());
             Text winnerPlayer = winText.transform.FindChild("WinnerPlayer").GetComponent<Text>();
             winnerPlayer.text = g.GetComponent<PlayerName>().GetName();
+            GameObject.FindGameObjectWithTag("Fireworks").GetComponent<ParticleSystem>().Play();
 
             Destroy(g);
+        }
+
+        if (playerList.Count == 0)
+        {
+            gameFinished = true;
+            //game over
+            winText.SetActive(true);
+            playerList.Clear();
+
+            StartCoroutine(exitToMenu());
+            Text winnerPlayer = winText.transform.FindChild("WinnerPlayer").GetComponent<Text>();
+            winnerPlayer.text = "NO ONE WINS";
         }
     }
 

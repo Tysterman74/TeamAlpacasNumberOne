@@ -3,8 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class NameGenerator : MonoBehaviour {
-
-    public string[] names;
+    private static string[] names = 
+    {"Jedd","Ashley","Jebidiah","BaeMax",
+    "Arkii",
+    "Reddeyfish",
+    "Ishni",
+    "Pikachu",
+    "RNGeezus",
+    "Reese",
+    "Cyrus",
+    "Falco",
+    "Chell",
+    "Gabe Newell",
+    "Coffee Chiu",
+    "Captain Ahab",
+    "Wily Loop",
+    "Ford Loop",
+    "Doop Loop",
+	"Ichigo",
+	"Nii-chan",
+	"Captain Kirk",
+	"Captain Jack",
+	"Sparrow"};
 
     private List<string> chosenNames;
 	// Use this for initialization
@@ -19,11 +39,24 @@ public class NameGenerator : MonoBehaviour {
 
     public string GetRandomName()
     {
-        string name = names[Random.Range(0, names.Length)];
-        while (!chosenNames.Contains(name))
+        if (chosenNames == null)
         {
-            name = names[Random.Range(0, names.Length)];
+            chosenNames = new List<string>();
         }
+
+        string name = names[Random.Range(0, names.Length)];
+        if (chosenNames.Count != 0)
+        {
+            while (chosenNames.Contains(name))
+            {
+                name = names[Random.Range(0, names.Length)];
+            }
+        }
+        //while (!chosenNames.Contains(name))
+        //{
+        //    name = names[Random.Range(0, names.Length)];
+        //}
+        chosenNames.Add(name);
         return name;
         //string
         //while (chosenNames.Contains(

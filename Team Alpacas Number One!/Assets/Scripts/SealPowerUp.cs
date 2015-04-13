@@ -34,6 +34,7 @@ public class SealPowerUp : PowerUp {
                         Physics.IgnoreCollision(playerHolding.GetComponent<Collider>(), g.GetComponent<Collider>(), false);
                     }
                 }
+                Destroy(this.gameObject);
 			}
 		}
 	}
