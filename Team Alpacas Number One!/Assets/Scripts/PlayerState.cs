@@ -60,6 +60,13 @@ public class PlayerState : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
+        if (numLives <= 0)
+        {
+            Debug.Log("Dead");
+            //tell player he lost the match, but in a cutsy way
+            gm.RemovePlayer(this.gameObject);
+            Destroy(this.gameObject);
+        }
         //if (isDead)
         //{
         if (invincibility < 0.0f)
@@ -121,17 +128,8 @@ public class PlayerState : MonoBehaviour {
         }
         shake.screenSlam(0.2f,0.5f);
         trail.clearTrail();
-
-        if (numLives < 0)
-        {
-            Debug.Log("Dead");
-            //tell player he lost the match, but in a cutsy way
-        }
-        else
-        {
-            numLives -= 1;
-            Destroy(hearts[numLives - 1]);
-        }
+        Destroy(hearts[numLives - 1]);
+        numLives -= 1;
 
     }
 

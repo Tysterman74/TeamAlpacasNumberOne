@@ -63,17 +63,17 @@ public class BackgroundSwitching : MonoBehaviour {
 
             if (picture1.transform.position.x - picWidth / 2.0f >= resetCheckPoint.transform.position.x)
             {
-                picture1.transform.position = originalPic1Pos + new Vector3(0.075f, 0, 0);
+                picture1.transform.position = picture2.transform.position - new Vector3(picWidth, 0, 0);
             }
 
             if (picture2.transform.position.x - picWidth / 2.0f >= resetCheckPoint.transform.position.x)
             {
-                picture2.transform.position = originalPic1Pos + new Vector3(0.075f, 0, 0);
+                picture2.transform.position = picture3.transform.position - new Vector3(picWidth, 0, 0);
             }
 
             if (picture3.transform.position.x - picWidth / 2.0f >= resetCheckPoint.transform.position.x)
             {
-                picture3.transform.position = originalPic1Pos + new Vector3(0.075f, 0, 0);
+                picture3.transform.position = picture1.transform.position - new Vector3(picWidth, 0, 0);
             }
             picture1.transform.position += new Vector3(0.075f, 0, 0);
             picture2.transform.position += new Vector3(0.075f, 0, 0);
