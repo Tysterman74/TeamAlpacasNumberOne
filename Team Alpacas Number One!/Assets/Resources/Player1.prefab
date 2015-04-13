@@ -18,6 +18,8 @@ GameObject:
   - 199: {fileID: 19966848}
   - 198: {fileID: 19895942}
   - 114: {fileID: 11438386}
+  - 82: {fileID: 8269634}
+  - 114: {fileID: 11443842}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -94,6 +96,75 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: -7.53000021, y: 6.15999985, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &8269634
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124776}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 11e0bee4c1df7a341847370e9edb9cf3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9563414
 Animator:
   serializedVersion: 3
@@ -144,6 +215,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d9fb8348b241d4da95963254a629bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11443842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 124776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62831f5ff0f425418bccd424449632d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freq: 5
 --- !u!114 &11448258
 MonoBehaviour:
   m_ObjectHideFlags: 1
