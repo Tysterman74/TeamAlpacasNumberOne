@@ -18,6 +18,7 @@ GameObject:
   - 199: {fileID: 19950242}
   - 198: {fileID: 19833520}
   - 114: {fileID: 11490064}
+  - 114: {fileID: 11498482}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Player4
@@ -185,6 +186,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832cc96d7a07aab4db72c51f0217c590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11498482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65cf3cde9fcc4f642aab31727f869d05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 
 --- !u!198 &19833520
 ParticleSystem:
   m_ObjectHideFlags: 1
