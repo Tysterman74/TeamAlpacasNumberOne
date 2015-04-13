@@ -24,7 +24,7 @@ public class HedgehogPowerUp : PowerUp {
                 //Reset
                 activated = false;
                 playerHolding.GetComponent<PlayerController>().SetBonusSpeed(0);
-
+                Destroy(this.gameObject);
             }
         }
 	}
