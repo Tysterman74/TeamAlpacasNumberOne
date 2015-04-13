@@ -104,14 +104,12 @@ public class CameraShakeScript : MonoBehaviour
             if (midy + Mathf.Abs(zScalar) * Mathf.Abs(z) > topPortal.position.y)
             {
                 midy = topPortal.position.y - (Mathf.Abs(zScalar) * Mathf.Abs(z));
-                Debug.Log("move1");
 
             }
             else if (midy - Mathf.Abs(zScalar) * Mathf.Abs(z) < bottomPortal.position.y)
             {
 
                 midy = bottomPortal.position.y + (Mathf.Abs(zScalar) * Mathf.Abs(z));
-                Debug.Log("move2");
             }
         }
         else
@@ -122,14 +120,12 @@ public class CameraShakeScript : MonoBehaviour
 
             {
                 midx = rightPortal.position.x - (Mathf.Abs(zScalar) * Mathf.Abs(z) * cam.aspect);
-                Debug.Log("move3");
 
             }
             else if (midx - (Mathf.Abs(zScalar) * Mathf.Abs(z) * cam.aspect) < leftPortal.position.x)
             {
 
                 midx = leftPortal.position.x + (Mathf.Abs(zScalar) * Mathf.Abs(z) * cam.aspect);
-                Debug.Log("move4");
 
             }
         }

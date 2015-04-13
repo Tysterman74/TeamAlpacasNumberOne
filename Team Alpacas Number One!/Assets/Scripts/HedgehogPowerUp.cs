@@ -36,6 +36,6 @@ public class HedgehogPowerUp : PowerUp {
         player.GetComponent<PlayerController>().SetBonusSpeed(bonusSpeed);
         activated = true;
         //player.GetComponent<Rigidbody>().velocity += transform.up * bonusSpeed;
-        print("Override");
+        Debug.Log("Override");
     }
 }
