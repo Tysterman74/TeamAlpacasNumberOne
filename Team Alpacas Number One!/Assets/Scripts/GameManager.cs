@@ -101,11 +101,18 @@ public class GameManager : MonoBehaviour {
             GameObject g = playerList[0];
             playerList.Clear();
 
+            StartCoroutine(exitToMenu());
             Text winnerPlayer = winText.transform.FindChild("WinnerPlayer").GetComponent<Text>();
             winnerPlayer.text = g.name;
 
             Destroy(g);
         }
+    }
+
+    IEnumerator exitToMenu()
+    {
+        yield return new WaitForSeconds(5.0f);
+        Application.LoadLevel("MainMenu");
     }
 
     void increasePlayerSpeed()
