@@ -169,6 +169,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &385076095
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 412354, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -.693525314
+      objectReference: {fileID: 0}
+    - target: {fileID: 412354, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -.539444923
+      objectReference: {fileID: 0}
+    - target: {fileID: 412354, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412354, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412354, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412354, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 412354, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 412354, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 36c7880c00cb73e41842ce94380c2ae4, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &763642412
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,81 +525,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d49e6dd85ac9c746abe9251967eabca, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1997014548
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1997014549}
-  - 114: {fileID: 1997014550}
-  - 114: {fileID: 1997014551}
-  - 114: {fileID: 1997014552}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1997014549
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997014548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.693525314, y: -.539444923, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
---- !u!114 &1997014550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997014548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ba8221e9a7f9349b1b5ec671a08ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnIncrement: 0
-  speedIncrement: 0
-  trailIncrement: 0
-  incrementTimer: 7
-  playerNames:
-  - Zakom
-  - Jebidiah
-  numPlayers: 2
---- !u!114 &1997014551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997014548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491b40b4940a4be4687c729fcd893928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1997014552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1997014548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a03a3d7e0b032654ba036a55268b80ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  names:
-  - Jedd
-  - Ashley
-  - Jebidiah
 --- !u!1001 &2044644258
 Prefab:
   m_ObjectHideFlags: 0

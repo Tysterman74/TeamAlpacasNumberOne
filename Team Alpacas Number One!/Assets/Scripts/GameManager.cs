@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour {
     public float speedIncrement;
     public float trailIncrement;
     public float incrementTimer = 3.0f;
-    public string[] playerNames;
 
 
     private GameObject winText;
@@ -20,7 +19,7 @@ public class GameManager : MonoBehaviour {
     private GameObject player2;
     private GameObject player3;
     private GameObject player4;
-
+    private NameGenerator names;
     private bool gameFinished;
     private float currentTimer = 0.0f;
 
@@ -55,6 +54,8 @@ public class GameManager : MonoBehaviour {
             //player4 = GameObject.Find("Player4");
             playerList.Add(player4);
         }
+
+        names = GetComponent<NameGenerator>();
     }
 
 	// Use this for initialization
@@ -83,13 +84,13 @@ public class GameManager : MonoBehaviour {
 
         gameFinished = false;
 
-        player1.GetComponent<PlayerName>().SetName(playerNames[0]);
-        player2.GetComponent<PlayerName>().SetName(playerNames[1]);
+        player1.GetComponent<PlayerName>().SetName(names.GetRandomName());
+        player2.GetComponent<PlayerName>().SetName(names.GetRandomName());
 
         if (numPlayers >= 3)
-            player3.GetComponent<PlayerName>().SetName(playerNames[2]);
+            player3.GetComponent<PlayerName>().SetName(names.GetRandomName());
         if (numPlayers == 4)
-            player4.GetComponent<PlayerName>().SetName(playerNames[3]);
+            player4.GetComponent<PlayerName>().SetName(names.GetRandomName());
 	}
 	
 	// Update is called once per frame

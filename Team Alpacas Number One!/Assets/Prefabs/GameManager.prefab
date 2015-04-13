@@ -1,16 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &125518
+--- !u!1 &154658
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 418504}
-  - 114: {fileID: 11464968}
-  - 114: {fileID: 11416920}
-  - 114: {fileID: 11485906}
+  - 4: {fileID: 412354}
+  - 114: {fileID: 11441828}
+  - 114: {fileID: 11492170}
+  - 114: {fileID: 11431346}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18,54 +18,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &418504
+--- !u!4 &412354
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125518}
+  m_GameObject: {fileID: 154658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.693525314, y: -.539444923, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11416920
+--- !u!114 &11431346
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491b40b4940a4be4687c729fcd893928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11464968
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7ba8221e9a7f9349b1b5ec671a08ed7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnIncrement: 0
-  speedIncrement: 0
-  trailIncrement: 0
-  incrementTimer: 7
-  playerNames:
-  - Zakom
-  - Jebidiah
-  numPlayers: 2
---- !u!114 &11485906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125518}
+  m_GameObject: {fileID: 154658}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a03a3d7e0b032654ba036a55268b80ee, type: 3}
@@ -75,6 +45,37 @@ MonoBehaviour:
   - Jedd
   - Ashley
   - Jebidiah
+  - BaeMax
+  - Arkii
+  - Reddeyfish
+  - Ishni
+--- !u!114 &11441828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7ba8221e9a7f9349b1b5ec671a08ed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnIncrement: 0
+  speedIncrement: 0
+  trailIncrement: 0
+  incrementTimer: 7
+  numPlayers: 2
+--- !u!114 &11492170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491b40b4940a4be4687c729fcd893928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -84,5 +85,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 125518}
+  m_RootGameObject: {fileID: 154658}
   m_IsPrefabParent: 1
