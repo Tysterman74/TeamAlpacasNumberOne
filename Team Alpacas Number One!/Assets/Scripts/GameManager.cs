@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public float trailIncrement;
     public float incrementTimer = 3.0f;
 
+    private GameObject winText;
     private List<GameObject> itemsOnField;
     private List<GameObject> playerList;
     
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour {
     private GameObject player3;
     private GameObject player4;
 
+    private bool gameFinished;
     private float currentTimer = 0.0f;
 
     //reminder to self: ask ben about the UI part for this!
@@ -70,17 +73,47 @@ public class GameManager : MonoBehaviour {
         playerList.Add(player2);
         playerList.Add(player3);
         playerList.Add(player4);*/
+        winText = GameObject.Find("WinnerObj");
+        winText.SetActive(false);
+
+        gameFinished = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         currentTimer += Time.deltaTime;
-        if (currentTimer >= incrementTimer)
+        
+        if (currentTimer >= incrementTimer && !gameFinished)
         {
             currentTimer = 0.0f;
             increasePlayerSpeed();
         }
+
 	}
+
+    void FixedUpdate()
+    {
+        if (playerList.Count == 1)
+        {
+            gameFinished = true;
+            //game over
+            winText.SetActive(true);
+            GameObject g = playerList[0];
+            playerList.Clear();
+
+            StartCoroutine(exitToMenu());
+            Text winnerPlayer = winText.transform.FindChild("WinnerPlayer").GetComponent<Text>();
+            winnerPlayer.text = g.name;
+
+            Destroy(g);
+        }
+    }
+
+    IEnumerator exitToMenu()
+    {
+        yield return new WaitForSeconds(5.0f);
+        Application.LoadLevel("MainMenu");
+    }
 
     void increasePlayerSpeed()
     {
@@ -105,6 +138,11 @@ public class GameManager : MonoBehaviour {
             player4.GetComponent<PlayerController>().AddTurn(turnIncrement);
             player4.GetComponent<LineCollision>().addTrailLength(trailIncrement);
         }
+    }
+
+    public void RemovePlayer(GameObject g)
+    {
+        playerList.Remove(g);
     }
 
     public List<GameObject> GetPlayerList()
