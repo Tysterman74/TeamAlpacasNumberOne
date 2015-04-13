@@ -45,7 +45,6 @@ public class ItemSpawner : MonoBehaviour
 			Vector2 itemToPut = new Vector2 (Random.Range ((border - width / 2), (width / 2 - border)), Random.Range ((border - height / 2), (height / 2 - border)));
 			if(!(Physics.CheckSphere(itemToPut, itemDistance)))
 			{
-				Debug.Log(currentPufferfishCount);
 				if(currentPufferfishCount < maxPufferfishCount){
 					GameObject g = (GameObject) Instantiate (itemlist [Random.Range (0, itemlist.Count)], itemToPut, itemlist [0].transform.rotation);
 					gm.AddItem(g);
