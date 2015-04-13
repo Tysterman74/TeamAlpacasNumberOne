@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   trailGraphic: {fileID: 135270, guid: 9fd36262af3952645aca8f0e911c7e04, type: 2}
-  trailColor: {r: .605882406, g: 1, b: .573529422, a: .0588235296}
+  trailColor: {r: .0810703784, g: .786764741, b: .0231401622, a: .0588235296}
 --- !u!114 &11477744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   rotaSpeed: 2
-  turnLeft: 260
-  turnRight: 262
-  itemUse: 261
+  turnLeft: 102
+  turnRight: 104
+  itemUse: 103
 --- !u!114 &11490064
 MonoBehaviour:
   m_ObjectHideFlags: 1

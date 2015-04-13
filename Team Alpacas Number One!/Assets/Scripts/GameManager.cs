@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        Debug.Log("awaken!");
         playerList = new List<GameObject>();
         itemsOnField = new List<GameObject>();
         player1 = Instantiate(Resources.Load("player1", typeof(GameObject))) as GameObject;
@@ -121,6 +120,18 @@ public class GameManager : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Fireworks").GetComponent<ParticleSystem>().Play();
 
             Destroy(g);
+        }
+
+        if (playerList.Count == 0)
+        {
+            gameFinished = true;
+            //game over
+            winText.SetActive(true);
+            playerList.Clear();
+
+            StartCoroutine(exitToMenu());
+            Text winnerPlayer = winText.transform.FindChild("WinnerPlayer").GetComponent<Text>();
+            winnerPlayer.text = "NO ONE WINS";
         }
     }
 

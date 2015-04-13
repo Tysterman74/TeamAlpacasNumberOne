@@ -16,8 +16,6 @@ public class OffscreenPointer : MonoBehaviour {
         trans = GetComponent<RectTransform>();
         pointer = GetComponent<Image>();
         pointer.color = new Color(0,0,0,0);
-        Debug.Log(Screen.height);
-        Debug.Log(Screen.width);
 	}
 	
 	// Update is called once per frame
@@ -35,7 +33,6 @@ public class OffscreenPointer : MonoBehaviour {
             if (direction.magnitude < Mathf.Abs(cam.GetComponent<Camera>().orthographicSize))
             {
                 trans.localPosition = direction * ((Screen.height / 2) / Mathf.Abs(cam.GetComponent<Camera>().orthographicSize));
-                Debug.Log(direction * ((Screen.height / 2) / Mathf.Abs(cam.GetComponent<Camera>().orthographicSize)));
             }
             else
             {

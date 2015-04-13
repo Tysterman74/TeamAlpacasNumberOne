@@ -9,3 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1
     path: Assets/Scenes/MainGamePlay.unity
+  - enabled: 1
+    path: Assets/Scenes/3-Player Battle.unity
+  - enabled: 1
+    path: Assets/Scenes/4-Player Battle.unity
