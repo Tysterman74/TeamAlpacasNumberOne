@@ -13,13 +13,14 @@ public class ItemSpawner : MonoBehaviour
 	private float width;
 	private float height;
     private GameManager gm;
-
+    private OffscreenPointer pointer;
 	// Use this for initialization
 	void Start () 
 	{
 		height = 2.0f * Camera.main.orthographicSize;
 		width = height * Camera.main.aspect;
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        pointer = GameObject.FindGameObjectWithTag("OffscreenPointer").GetComponent<OffscreenPointer>();
 	}
 	
 	// Update is called once per frame
@@ -32,6 +33,7 @@ public class ItemSpawner : MonoBehaviour
 			{
 				GameObject g = (GameObject) Instantiate (itemlist [Random.Range (0, itemlist.Length)], itemToPut, itemlist [0].transform.rotation);
                 gm.AddItem(g);
+                pointer.setTargetItem(itemToPut);
                 timer = 0f;
 			}
 		}
