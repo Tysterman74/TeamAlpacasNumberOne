@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour {
             StartCoroutine(exitToMenu());
             Text winnerPlayer = winText.transform.FindChild("WinnerPlayer").GetComponent<Text>();
             winnerPlayer.text = g.GetComponent<PlayerName>().GetName();
+            GameObject.FindGameObjectWithTag("Fireworks").GetComponent<ParticleSystem>().Play();
 
             Destroy(g);
         }
