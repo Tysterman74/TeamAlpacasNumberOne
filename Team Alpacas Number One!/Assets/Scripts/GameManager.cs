@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
     public float speedIncrement;
     public float trailIncrement;
     public float incrementTimer = 3.0f;
+    public string[] playerNames;
+
 
     private GameObject winText;
     private List<GameObject> itemsOnField;
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour {
         playerList = new List<GameObject>();
         itemsOnField = new List<GameObject>();
         player1 = Instantiate(Resources.Load("player1", typeof(GameObject))) as GameObject;
+
         player2 = Instantiate(Resources.Load("player2", typeof(GameObject))) as GameObject;
         /*Instantiate(player1, new Vector3(-5.0f, 4.0f, 0.0f), Quaternion.identity);
         Instantiate(player2, new Vector3(5.0f, 4.0f, 0.0f), Quaternion.identity);
@@ -39,7 +42,7 @@ public class GameManager : MonoBehaviour {
         player2 = GameObject.Find("Player2");*/
         playerList.Add(player1);
         playerList.Add(player2);
-        if(numPlayers == 3)
+        if(numPlayers >= 3)
         {
             player3 = Instantiate(Resources.Load("player3", typeof(GameObject))) as GameObject;
             player3 = GameObject.Find("Player3");
@@ -76,6 +79,14 @@ public class GameManager : MonoBehaviour {
 		playerFrame.GetComponent<UIScaleScript> ().setUI (numPlayers);
         winText = GameObject.Find("WinnerObj");
         winText.SetActive(false);
+
+        player1.GetComponent<PlayerName>().SetName(playerNames[0]);
+        player2.GetComponent<PlayerName>().SetName(playerNames[1]);
+
+        if (numPlayers >= 3)
+            player3.GetComponent<PlayerName>().SetName(playerNames[2]);
+        if (numPlayers == 4)
+            player4.GetComponent<PlayerName>().SetName(playerNames[3]);
 
         gameFinished = false;
 	}
@@ -126,7 +137,7 @@ public class GameManager : MonoBehaviour {
         player1.GetComponent<LineCollision>().addTrailLength(trailIncrement);
         player2.GetComponent<LineCollision>().addTrailLength(trailIncrement);
 
-        if (numPlayers == 3)
+        if (numPlayers >= 3)
         { 
             player3.GetComponent<PlayerController>().AddSpeed(speedIncrement);
             player3.GetComponent<PlayerController>().AddTurn(turnIncrement);

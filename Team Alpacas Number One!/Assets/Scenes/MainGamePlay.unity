@@ -87,6 +87,88 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &20810888
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707106709
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 294
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 290
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_Pivot.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22442888, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+      propertyPath: m_Pivot.y
+      value: .5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: df8c23c15cb251d48a9749dd31d671f0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &763642412
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +266,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 453062, guid: 759ebb933a1d366469afe3b3bb61be49, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 759ebb933a1d366469afe3b3bb61be49, type: 2}
@@ -310,7 +392,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22477508, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22477508, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -445,6 +527,9 @@ MonoBehaviour:
   speedIncrement: 0
   trailIncrement: 0
   incrementTimer: 7
+  playerNames:
+  - Zakom
+  - Jebidiah
   numPlayers: 2
 --- !u!114 &1997014551
 MonoBehaviour:
@@ -494,7 +579,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498188, guid: ec57c746fb4fbc3458d8091b0a0cc86d, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11487622, guid: ec57c746fb4fbc3458d8091b0a0cc86d, type: 2}
       propertyPath: BGMPlaylist.Array.data[0]
