@@ -609,6 +609,7 @@ MonoBehaviour:
   time: 7
   itemDistance: 4
   border: 4
+  maxPufferfishCount: 0
 --- !u!4 &2122217152
 Transform:
   m_ObjectHideFlags: 0
