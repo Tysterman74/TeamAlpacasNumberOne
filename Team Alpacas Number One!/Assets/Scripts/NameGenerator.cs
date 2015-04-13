@@ -37,6 +37,8 @@ public class NameGenerator : MonoBehaviour {
         string name = names[Random.Range(0, names.Length)];
         while (!chosenNames.Contains(name))
         {
+            if (names.Length == 0)
+                break;
             name = names[Random.Range(0, names.Length)];
         }
         return name;

@@ -11,7 +11,7 @@ public class ShellPowerup : PowerUp
     public override void Activate(GameObject player)
     {
         GameObject shell;
-        shell = Instantiate(shellBulletPrefab, player.transform.position, player.transform.rotation) as GameObject;
+        shell = Instantiate(shellBulletPrefab, player.transform.position + (speedMultiplier * player.GetComponent<Rigidbody>().velocity), player.transform.rotation) as GameObject;
         Destroy(shell, duration);
         shell.GetComponent<Rigidbody>().velocity = speedMultiplier * player.GetComponent<Rigidbody>().velocity;
         Physics.IgnoreCollision(shell.GetComponent<Collider>(), player.GetComponent<Collider>());
