@@ -33,7 +33,7 @@ public class PlayerState : MonoBehaviour {
     private GameManager gm;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 
@@ -47,13 +47,14 @@ public class PlayerState : MonoBehaviour {
         trail = GetComponent<LineCollision>();
 		GameObject playerFrame = GameObject.Find ("CanvasPrefab/PlayerFrame");
 		ui = Instantiate (playerUI) as GameObject;
-		ui.transform.parent=playerFrame.transform;
+		ui.transform.SetParent (playerFrame.transform);
+		print ("HERP");
 		heartContainer = ui.transform.FindChild ("HeartContainer").gameObject;
 		hearts = new GameObject[numLives];
 		for (int i=0; i<numLives; i++) {
 			GameObject heart = Instantiate (Heart) as GameObject;
 			hearts[i]=heart;
-			heart.transform.parent=heartContainer.transform;
+			heart.transform.SetParent (heartContainer.transform);
 		}
 	}
 	
