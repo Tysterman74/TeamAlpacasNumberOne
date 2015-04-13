@@ -45,14 +45,14 @@ public class GameManager : MonoBehaviour {
         if(numPlayers >= 3)
         {
             player3 = Instantiate(Resources.Load("player3", typeof(GameObject))) as GameObject;
-            player3 = GameObject.Find("Player3");
+            //player3 = GameObject.Find("Player3");
             playerList.Add(player3);
         }
             
         if(numPlayers == 4)
         {
             player4 = Instantiate(Resources.Load("player4", typeof(GameObject))) as GameObject;
-            player4 = GameObject.Find("Player4");
+            //player4 = GameObject.Find("Player4");
             playerList.Add(player4);
         }
     }
