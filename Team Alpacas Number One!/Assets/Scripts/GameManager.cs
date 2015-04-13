@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        Debug.Log("awaken!");
         playerList = new List<GameObject>();
         itemsOnField = new List<GameObject>();
         player1 = Instantiate(Resources.Load("player1", typeof(GameObject))) as GameObject;

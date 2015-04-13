@@ -87,7 +87,7 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &337557075
+--- !u!1 &337557075 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 179122, guid: e6b245a452ca0994da2aa5af02fb7c7c, type: 2}
   m_PrefabInternal: {fileID: 1609819232}
@@ -318,6 +318,10 @@ Prefab:
     - target: {fileID: 22477508, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22408490, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}

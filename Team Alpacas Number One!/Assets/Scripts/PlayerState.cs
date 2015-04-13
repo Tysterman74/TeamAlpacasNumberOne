@@ -48,7 +48,6 @@ public class PlayerState : MonoBehaviour {
 		GameObject playerFrame = GameObject.Find ("CanvasPrefab/PlayerFrame");
 		ui = Instantiate (playerUI) as GameObject;
 		ui.transform.SetParent (playerFrame.transform);
-		print ("HERP");
 		heartContainer = ui.transform.FindChild ("HeartContainer").gameObject;
 		hearts = new GameObject[numLives];
 		for (int i=0; i<numLives; i++) {

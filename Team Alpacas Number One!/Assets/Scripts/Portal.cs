@@ -22,8 +22,6 @@ public class Portal : MonoBehaviour {
         Camera cam = Camera.main;
         height = 2.0f * cam.orthographicSize;
         width = height * cam.aspect;
-        print("Width: " + width);
-        print("Height: " + height);
 	}
 	
 	// Update is called once per frame
