@@ -101,7 +101,12 @@ public class PlayerState : MonoBehaviour {
 	public bool getActivePuffer(){
 		return activePuffer;
 	}
-	
+
+    public void setName(string playerName)
+    {
+        ui.transform.FindChild("PlayerText").GetComponent<Text>().text = playerName;
+    }
+
 	public void loseLife()
     {
         if (isDead || invulnerable)

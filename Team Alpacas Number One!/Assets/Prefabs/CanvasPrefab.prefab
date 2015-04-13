@@ -59,6 +59,7 @@ GameObject:
   - 224: {fileID: 22408490}
   - 114: {fileID: 11424634}
   - 114: {fileID: 11450866}
+  - 114: {fileID: 11405202}
   m_Layer: 5
   m_Name: PlayerFrame
   m_TagString: Untagged
@@ -100,6 +101,17 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11405202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6208df9c6a6c2bf42ba5344a5a1f765c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11424634
 MonoBehaviour:
   m_ObjectHideFlags: 1

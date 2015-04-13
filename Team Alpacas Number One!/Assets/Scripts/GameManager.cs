@@ -75,10 +75,13 @@ public class GameManager : MonoBehaviour {
         playerList.Add(player2);
         playerList.Add(player3);
         playerList.Add(player4);*/
+
 		GameObject playerFrame = GameObject.Find ("CanvasPrefab/PlayerFrame");
 		playerFrame.GetComponent<UIScaleScript> ().setUI (numPlayers);
         winText = GameObject.Find("WinnerObj");
         winText.SetActive(false);
+
+        gameFinished = false;
 
         player1.GetComponent<PlayerName>().SetName(playerNames[0]);
         player2.GetComponent<PlayerName>().SetName(playerNames[1]);
@@ -87,8 +90,6 @@ public class GameManager : MonoBehaviour {
             player3.GetComponent<PlayerName>().SetName(playerNames[2]);
         if (numPlayers == 4)
             player4.GetComponent<PlayerName>().SetName(playerNames[3]);
-
-        gameFinished = false;
 	}
 	
 	// Update is called once per frame
@@ -115,7 +116,7 @@ public class GameManager : MonoBehaviour {
 
             StartCoroutine(exitToMenu());
             Text winnerPlayer = winText.transform.FindChild("WinnerPlayer").GetComponent<Text>();
-            winnerPlayer.text = g.name;
+            winnerPlayer.text = g.GetComponent<PlayerName>().GetName();
 
             Destroy(g);
         }

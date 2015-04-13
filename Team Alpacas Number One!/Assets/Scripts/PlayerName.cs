@@ -19,8 +19,8 @@ public class PlayerName : MonoBehaviour {
     public void SetName(string pName)
     {
         playerName = pName;
-        print(pName);
-        GetComponent<PlayerState>().playerUI.transform.FindChild("PlayerText").GetComponent<Text>().text = pName;
+        //GetComponent<PlayerState>().playerUI.transform.FindChild("PlayerText").GetComponent<Text>().text = pName;
+        GetComponent<PlayerState>().setName(playerName);
     }
 
     public string GetName()
