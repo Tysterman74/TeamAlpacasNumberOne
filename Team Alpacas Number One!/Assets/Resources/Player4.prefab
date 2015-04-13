@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLength: 10
   trailGraphic: {fileID: 135270, guid: 9fd36262af3952645aca8f0e911c7e04, type: 2}
-  trailColor: {r: 1, g: .639705896, b: .639705896, a: .0588235296}
+  trailColor: {r: .605882406, g: 1, b: .573529422, a: .0588235296}
 --- !u!114 &11477744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1325,7 +1325,7 @@ SpriteRenderer:
   m_SortingLayerID: 1273825571
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 025f06905f328734d855d0aaab2f37a7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .748073041, g: 1, b: .602941155, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
