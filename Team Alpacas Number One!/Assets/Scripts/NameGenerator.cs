@@ -40,6 +40,13 @@ public class NameGenerator : MonoBehaviour {
         }
 
         string name = names[Random.Range(0, names.Length)];
+        if (chosenNames.Count != 0)
+        {
+            while (chosenNames.Contains(name))
+            {
+                name = names[Random.Range(0, names.Length)];
+            }
+        }
         //while (!chosenNames.Contains(name))
         //{
         //    name = names[Random.Range(0, names.Length)];
