@@ -123,7 +123,6 @@ MonoBehaviour:
   time: 7
   itemDistance: 3
   border: 2
-  maxPufferfishCount: 0
 --- !u!4 &46591759
 Transform:
   m_ObjectHideFlags: 0
@@ -425,7 +424,7 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 11407224, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}
+    - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 9a245dec1d3e8524b81d756909fe954c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1021047762
@@ -555,7 +554,7 @@ MonoBehaviour:
   speedIncrement: 0
   trailIncrement: 0
   incrementTimer: 3
-  numPlayers: 2
+  numPlayers: 4
 --- !u!4 &1083420681
 Transform:
   m_ObjectHideFlags: 0
