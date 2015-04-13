@@ -3,8 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class NameGenerator : MonoBehaviour {
-
-    public string[] names;
+    private static string[] names = 
+    {"Jedd","Ashley","Jebidiah","BaeMax",
+    "Arkii",
+    "Reddeyfish",
+    "Ishni",
+    "Pikachu",
+    "RNGeezus",
+    "Rese",
+    "Cyrus",
+    "Falco",
+    "Chell",
+    "Gabe Newell",
+    "Coffee Chiu",
+    "Ahab",
+    "Wily Loop",
+    "Ford Loop",
+    "Doop Loop"};
 
     private List<string> chosenNames;
 	// Use this for initialization
