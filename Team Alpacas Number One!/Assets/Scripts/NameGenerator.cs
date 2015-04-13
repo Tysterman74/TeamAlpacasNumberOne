@@ -10,16 +10,21 @@ public class NameGenerator : MonoBehaviour {
     "Ishni",
     "Pikachu",
     "RNGeezus",
-    "Rese",
+    "Reese",
     "Cyrus",
     "Falco",
     "Chell",
     "Gabe Newell",
     "Coffee Chiu",
-    "Ahab",
+    "Captain Ahab",
     "Wily Loop",
     "Ford Loop",
-    "Doop Loop"};
+    "Doop Loop",
+	"Ichigo",
+	"Nii-chan",
+	"Captain Kirk",
+	"Captain Jack",
+	"Sparrow"};
 
     private List<string> chosenNames;
 	// Use this for initialization
