@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour {
             player4 = GameObject.Find("Player4");
             playerList.Add(player4);
         }
-            
     }
 
 	// Use this for initialization
@@ -73,6 +72,8 @@ public class GameManager : MonoBehaviour {
         playerList.Add(player2);
         playerList.Add(player3);
         playerList.Add(player4);*/
+		GameObject playerFrame = GameObject.Find ("CanvasPrefab/PlayerFrame");
+		playerFrame.GetComponent<UIScaleScript> ().setUI (numPlayers);
         winText = GameObject.Find("WinnerObj");
         winText.SetActive(false);
 
