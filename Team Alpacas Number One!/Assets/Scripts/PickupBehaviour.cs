@@ -11,6 +11,7 @@ public class PickupBehaviour : MonoBehaviour {
     public AudioClip loopEnter;
     public AudioClip loopComplete;
     public AudioClip loopExit;
+    private float colliderSize;
     // Use this for initialization
     void Start()
     {
@@ -21,6 +22,8 @@ public class PickupBehaviour : MonoBehaviour {
         powerUp = GetComponent<PowerUp>();
 
         powerUp.PrintPowerUp();
+
+        colliderSize = this.GetComponent<SphereCollider>().radius;
     }
 
     public void Trigger() //all pickups should override this method
@@ -40,6 +43,12 @@ public class PickupBehaviour : MonoBehaviour {
         GameObject UI;
         Vector2 translation = other.transform.position - this.transform.position;
         UI = Instantiate(loopUIElement, this.transform.position, Quaternion.Euler(new Vector3(0, 0, Mathf.Rad2Deg * Mathf.Atan2(translation.y, translation.x)))) as GameObject;
+        if (this.transform.localScale.z > this.transform.localScale.x && this.transform.localScale.z > this.transform.localScale.y)
+            UI.transform.localScale = new Vector3(this.transform.localScale.z * colliderSize, this.transform.localScale.z * colliderSize, 1);
+        else
+            UI.transform.localScale = new Vector3(this.transform.localScale.x * colliderSize, this.transform.localScale.y * colliderSize, 1);
+        
+        //maybe recolor the UI arc to the player's trail color?
         currentPositions[other.gameObject.GetInstanceID()] = new loopObject(translation, UI);
     }
 
