@@ -4,4 +4,5 @@ using System.Collections;
 public static class Tags{
     public static string player = "Player";
     public static string pickup = "Pickup";
+    public const string death = "Death";
 }

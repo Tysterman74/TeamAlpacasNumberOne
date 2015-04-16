@@ -15,6 +15,7 @@ TagManager:
   - Player8
   - OffscreenPointer
   - Fireworks
+  - Death
   layers:
   - Default
   - TransparentFX

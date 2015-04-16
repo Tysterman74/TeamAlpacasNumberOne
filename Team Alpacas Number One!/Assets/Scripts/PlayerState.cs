@@ -115,7 +115,7 @@ public class PlayerState : MonoBehaviour {
         isDead = true;
         GameObject deadPlane;
         deadPlane = Instantiate(deadPlanePrefab, this.transform.position, this.transform.rotation) as GameObject;
-        Destroy(deadPlane, 5);
+        Destroy(deadPlane, 2);
         deadPlane.GetComponent<Rigidbody>().velocity = this.GetComponent<Rigidbody>().velocity;
         gm.clearAllItemUI();
         StartCoroutine(respawn());

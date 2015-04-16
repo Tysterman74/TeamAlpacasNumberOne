@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class CameraShakeScript : MonoBehaviour
 {
@@ -49,10 +50,10 @@ public class CameraShakeScript : MonoBehaviour
         float miny = holder.position.y;
         float maxy = holder.position.y;
         int numPlayers = 0;
-        foreach (GameObject player in players)
+        foreach (GameObject player in players.Union(GameObject.FindGameObjectsWithTag(Tags.death)))
         {
             Vector3 playerPos = player.transform.position;
-            if (player.GetComponent<PlayerState>().isDead || minx < leftPortal.position.x || maxx > rightPortal.position.x || miny < bottomPortal.position.y || maxy > topPortal.position.y)
+            if ((player.GetComponent<PlayerState>() != null && player.GetComponent<PlayerState>().isDead) || minx < leftPortal.position.x || maxx > rightPortal.position.x || miny < bottomPortal.position.y || maxy > topPortal.position.y)
             {
                 // do nothing; the plane is outside the portals
             }
