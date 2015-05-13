@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 2
-  duration: 5
+  duration: 60
   shellBulletPrefab: {fileID: 136596, guid: c5e23f83b5188694ba50e77110b48ddc, type: 2}
 --- !u!114 &11497092
 MonoBehaviour:

@@ -32,14 +32,16 @@ public class GameManager : MonoBehaviour {
         playerList = new List<GameObject>();
         itemsOnField = new List<GameObject>();
         player1 = Instantiate(Resources.Load("player1", typeof(GameObject))) as GameObject;
-
-        player2 = Instantiate(Resources.Load("player2", typeof(GameObject))) as GameObject;
+        playerList.Add(player1);
         /*Instantiate(player1, new Vector3(-5.0f, 4.0f, 0.0f), Quaternion.identity);
         Instantiate(player2, new Vector3(5.0f, 4.0f, 0.0f), Quaternion.identity);
         player1 = GameObject.Find("Player1");
         player2 = GameObject.Find("Player2");*/
-        playerList.Add(player1);
-        playerList.Add(player2);
+        if (numPlayers >= 2)
+        {
+            player2 = Instantiate(Resources.Load("player2", typeof(GameObject))) as GameObject;
+            playerList.Add(player2);
+        }
         if(numPlayers >= 3)
         {
             player3 = Instantiate(Resources.Load("player3", typeof(GameObject))) as GameObject;
@@ -52,6 +54,10 @@ public class GameManager : MonoBehaviour {
             player4 = Instantiate(Resources.Load("player4", typeof(GameObject))) as GameObject;
             //player4 = GameObject.Find("Player4");
             playerList.Add(player4);
+        }
+        if (numPlayers > 4 || numPlayers <= 0)
+        {
+            Debug.Log("ERROR: we only have code for 1-4 players; refactor this NOW!");
         }
 
     }
@@ -82,10 +88,9 @@ public class GameManager : MonoBehaviour {
         winText.SetActive(false);
 
         gameFinished = false;
-
         player1.GetComponent<PlayerName>().SetName(names.GetRandomName());
-        player2.GetComponent<PlayerName>().SetName(names.GetRandomName());
-
+        if(numPlayers >=2)
+            player2.GetComponent<PlayerName>().SetName(names.GetRandomName());
         if (numPlayers >= 3)
             player3.GetComponent<PlayerName>().SetName(names.GetRandomName());
         if (numPlayers == 4)
@@ -106,7 +111,7 @@ public class GameManager : MonoBehaviour {
 
     void FixedUpdate()
     {
-        if (playerList.Count == 1)
+        if (playerList.Count == 1 && numPlayers > 1)
         {
             gameFinished = true;
             //game over
@@ -145,11 +150,18 @@ public class GameManager : MonoBehaviour {
     {
         print("INCREASE MOFO");
         player1.GetComponent<PlayerController>().AddSpeed(speedIncrement);
-        player2.GetComponent<PlayerController>().AddSpeed(speedIncrement);
+       
         player1.GetComponent<PlayerController>().AddTurn(turnIncrement);
-        player2.GetComponent<PlayerController>().AddTurn(turnIncrement);
+        
         player1.GetComponent<LineCollision>().addTrailLength(trailIncrement);
-        player2.GetComponent<LineCollision>().addTrailLength(trailIncrement);
+        
+
+        if (numPlayers >= 2)
+        {
+            player2.GetComponent<PlayerController>().AddSpeed(speedIncrement);
+            player2.GetComponent<PlayerController>().AddTurn(turnIncrement);
+            player2.GetComponent<LineCollision>().addTrailLength(trailIncrement);
+        }
 
         if (numPlayers >= 3)
         { 

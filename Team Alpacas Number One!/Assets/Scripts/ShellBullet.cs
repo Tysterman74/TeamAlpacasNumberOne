@@ -42,4 +42,9 @@ public class ShellBullet : MonoBehaviour {
         }
         lastPosition = transform.position;
 	}
+
+    public void portalJump()
+    {
+        lastPosition = transform.position;
+    }
 }

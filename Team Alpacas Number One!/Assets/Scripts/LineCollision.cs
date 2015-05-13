@@ -95,8 +95,13 @@ public class LineCollision : MonoBehaviour {
                     int count = 80;
                     if (count + firstIndex >= trail.Count)
                         count = (trail.Count - firstIndex) - 1;
+                    float lostLength = 0;
                     for (int j = firstIndex; j < firstIndex + count; j++)
+                    {
+                        lostLength += trail[j].getTranslation().magnitude;
                         trail[j].destroy();
+                    }
+                    currentLength = currentLength - lostLength;
                     trail.RemoveRange(firstIndex, count);
                     break;
                 }

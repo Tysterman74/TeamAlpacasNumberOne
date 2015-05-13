@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedMultiplier: 2
-  duration: 5
+  duration: 60
   seahorseBulletPrefab: {fileID: 155778, guid: 1a9c7b83667b2f642b5118012c45c1e0, type: 2}
 --- !u!135 &13530666
 SphereCollider:

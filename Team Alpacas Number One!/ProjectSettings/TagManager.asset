@@ -16,6 +16,7 @@ TagManager:
   - OffscreenPointer
   - Fireworks
   - Death
+  - Bullet
   layers:
   - Default
   - TransparentFX

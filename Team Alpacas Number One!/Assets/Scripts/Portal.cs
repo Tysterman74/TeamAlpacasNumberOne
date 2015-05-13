@@ -31,7 +31,7 @@ public class Portal : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag.Contains("Player"))
+        if (col.tag.Contains("Player") || col.tag.Contains("Bullet"))
         {
             //Teleport player to other side.
             //Assume width for now,
@@ -69,11 +69,11 @@ public class Portal : MonoBehaviour {
                 //playerPos.x = receivingPortal.transform.position.x;
                 if (name == "RightPortal")
                 {
-                    playerPos.x = receivingPortal.transform.position.x + 1.5f;
+                    playerPos.x = receivingPortal.transform.position.x + 3.0f;
                 }
                 else
                 {
-                    playerPos.x = receivingPortal.transform.position.x - 1.5f;
+                    playerPos.x = receivingPortal.transform.position.x - 3.0f;
                 }
             }
             else
@@ -81,11 +81,11 @@ public class Portal : MonoBehaviour {
                 //playerPos.y = receivingPortal.transform.position.y;
                 if (name == "TopPortal")
                 {
-                    playerPos.y = receivingPortal.transform.position.y + 1.5f;
+                    playerPos.y = receivingPortal.transform.position.y + 3.0f;
                 }
                 else
                 {
-                    playerPos.y = receivingPortal.transform.position.y - 1.5f;
+                    playerPos.y = receivingPortal.transform.position.y - 3.0f;
                 }
             }
             //if (leftRight)
@@ -98,7 +98,10 @@ public class Portal : MonoBehaviour {
             //
             //}
             col.transform.position = playerPos;
-            col.gameObject.GetComponent<LineCollision>().portalJump();
+            if (col.tag.Contains("Player"))
+                col.gameObject.GetComponent<LineCollision>().portalJump();
+            else if (col.gameObject.GetComponent<ShellBullet>() != null)
+                col.gameObject.GetComponent<ShellBullet>().portalJump();
             noise.Play();
         }
     }
