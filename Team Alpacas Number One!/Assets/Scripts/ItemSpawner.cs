@@ -52,11 +52,14 @@ public class ItemSpawner : MonoBehaviour
 				}
 				else{
 					newItemList = itemlist;
+                    HashSet<GameObject> toremove = new HashSet<GameObject>(); //because we cannot remove objects while iterating over a list
 					foreach(GameObject game in newItemList){
 						if (game.name == "Pufferfish"){
-							newItemList.Remove(game);
+                            toremove.Add(game);
 						}
 					}
+                    foreach (GameObject game in toremove)
+                        newItemList.Remove(game);
 					GameObject g = (GameObject) Instantiate (newItemList [Random.Range (0, itemlist.Count)], itemToPut, itemlist [0].transform.rotation);
 					gm.AddItem(g);
 					timer = 0f;

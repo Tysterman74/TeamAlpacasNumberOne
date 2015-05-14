@@ -31,7 +31,7 @@ public class Portal : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag.Contains("Player") || col.tag.Contains("Bullet"))
+        if (col.tag.Contains("Player") || col.tag.Contains("Bullet") || col.tag.Contains("TrailMaker"))
         {
             //Teleport player to other side.
             //Assume width for now,
@@ -98,7 +98,7 @@ public class Portal : MonoBehaviour {
             //
             //}
             col.transform.position = playerPos;
-            if (col.tag.Contains("Player"))
+            if (col.tag.Contains("Player") || col.tag.Contains("TrailMaker"))
                 col.gameObject.GetComponent<LineCollision>().portalJump();
             else if (col.gameObject.GetComponent<ShellBullet>() != null)
                 col.gameObject.GetComponent<ShellBullet>().portalJump();

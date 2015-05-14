@@ -8,12 +8,13 @@ public class ShellSummoner : PowerUp
     public GameObject shellBulletPrefab;
 
 
-    public void Start()
+    public override void Start()
     {
         GameObject shell;
         shell = Instantiate(shellBulletPrefab, this.transform.position, this.transform.rotation) as GameObject;
         Destroy(shell, duration);
-        shell.GetComponent<Rigidbody>().velocity = speed * Random.insideUnitCircle;
+        shell.GetComponent<Rigidbody>().velocity = speed * Random.insideUnitCircle.normalized;
+        GameObject.Find("GameManager").GetComponent<GameManager>().RemoveItem(this.gameObject);
         Destroy(this.gameObject);
     }
 }

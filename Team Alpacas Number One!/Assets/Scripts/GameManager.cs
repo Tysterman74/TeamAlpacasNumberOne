@@ -192,7 +192,8 @@ public class GameManager : MonoBehaviour {
     {
         foreach (GameObject g in itemsOnField)
         {
-            g.GetComponent<PickupBehaviour>().EraseAllUI(player1, player2);
+            PickupBehaviour pickup = g.GetComponent<PickupBehaviour>();
+            pickup.EraseAllUI(player1, player2);
         }
     }
 

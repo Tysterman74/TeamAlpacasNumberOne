@@ -29,7 +29,6 @@ public class LineCollision : MonoBehaviour {
                 enemyTrails.Add(player.GetComponent<LineCollision>());
             }
         }
-        GetComponent<ParticleSystemRenderer>().sortingLayerName = "cloudParticles";
 	}
 	
 	// Update is called once per frame
@@ -43,7 +42,13 @@ public class LineCollision : MonoBehaviour {
             if (other.doesSegmentIntersect(line))
             {
                 Debug.Log("HIT!");
-                state.loseLife();
+                if (state != null)
+                    state.loseLife();
+                else
+                {
+                    clearTrail();
+                    Destroy(this.gameObject);
+                }
             }
         }
         currentLength += line.getTranslation().magnitude;
@@ -59,6 +64,11 @@ public class LineCollision : MonoBehaviour {
     public void addTrailLength(float addition)
     {
         maxLength += addition;
+    }
+
+    public void addEnemy(LineCollision other)
+    {
+        enemyTrails.Add(other);
     }
 
     public bool doesSegmentIntersect(lineObject other)

@@ -17,6 +17,7 @@ TagManager:
   - Fireworks
   - Death
   - Bullet
+  - TrailMaker
   layers:
   - Default
   - TransparentFX

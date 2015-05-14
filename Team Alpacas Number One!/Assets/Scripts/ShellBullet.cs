@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 public class ShellBullet : MonoBehaviour {
@@ -6,6 +7,9 @@ public class ShellBullet : MonoBehaviour {
     private Vector2 lastPosition;
     private Rigidbody rigid;
     public AudioClip hitSound;
+    private PlayerState singlePlayer;
+
+    public float homing = 0.02f;
 	// Use this for initialization
 	void Start () {
         lastPosition = transform.position;
@@ -16,6 +20,11 @@ public class ShellBullet : MonoBehaviour {
         foreach (GameObject other in enemyObjects)
         {
             enemyTrails.Add(other.GetComponent<LineCollision>());
+        }
+        if (enemyObjects.Count == 1) //single-player mode
+        {
+            singlePlayer = enemyObjects[0].GetComponent<PlayerState>();
+            StartCoroutine("Homing");
         }
 	}
 
@@ -47,4 +56,14 @@ public class ShellBullet : MonoBehaviour {
     {
         lastPosition = transform.position;
     }
+    IEnumerator Homing()
+    {
+        while (true)
+        {
+            if(!singlePlayer.isDead)
+                rigid.velocity = rigid.velocity.magnitude * ((homing * (singlePlayer.transform.position - this.transform.position).normalized) + rigid.velocity).normalized;
+            yield return null;
+        }
+    }
+
 }
